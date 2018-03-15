@@ -129,7 +129,6 @@
 			<artifactId>spring-security-taglibs</artifactId>
 			<version>4.2.4.RELEASE</version>
 		</dependency>
-		
 		<!-- JUnit -->
 		<dependency>
 			<groupId>junit</groupId>
