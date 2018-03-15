@@ -1,0 +1,90 @@
+DROP TABLE user_authority;
+DROP TABLE payment;
+DROP TABLE authority;
+DROP TABLE product;
+DROP TABLE user;
+
+# 고객 정의 테이블
+CREATE TABLE user (
+	user_no 	INT 			NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	id 			VARCHAR(15) 	NOT NULL,
+	password 	VARCHAR(20) 	NOT NULL,
+	user_name 	VARCHAR(30) 	NOT NULL,
+	birth 		DATE 			NOT NULL,
+	phone 		INT				NOT NULL,
+	address 	VARCHAR(255)	NOT NULL
+);
+
+# 사용자 권한 정의한 테이블
+CREATE TABLE authority (
+	id		INT 		NOT NULL PRIMARY KEY,
+	name	VARCHAR(30)	NOT NULL
+);
+
+# 사용자 번호와 사용자 권한 아이디값을 연결하는 테이블
+CREATE TABLE user_authority (
+	user_no 		INT NOT NULL,
+	authority_id 	INT NOT NULL,
+	FOREIGN KEY (user_no) 		REFERENCES user(user_no),
+	FOREIGN KEY (authority_id)	REFERENCES authority(id)
+);
+
+# 상품을 정의한 테이블
+CREATE TABLE product(
+	product_no		INT				NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	product_type	VARCHAR(30) 	NOT NULL,
+	product_name	VARCHAR(30) 	NOT NULL,
+	price			INT				NOT NULL,
+	EA				INT				NOT NULL,
+	inventory		INT				NOT NULL,
+	explaination	VARCHAR(255)	NOT NULL,
+	attachment		VARCHAR(255)	NOT NULL
+);
+
+# 결제 정보를 정의한 테이블
+CREATE TABLE payment (
+	payment_no		INT				NOT NULL	AUTO_INCREMENT PRIMARY KEY,
+	user_no			INT				NOT NULL,
+	product_no		INT 			NOT NULL,
+	buyer_name		VARCHAR(10)		NOT NULL,
+	buyer_address	VARCHAR(255)	NOT NULL,
+	buyer_phone		INT				NOT NULL,
+	buyer_email		VARCHAR(255)	NOT NULL,
+	total_price		INT				NOT NULL,
+	FOREIGN KEY (user_no) REFERENCES user(user_no),
+	FOREIGN KEY (product_no) REFERENCES product(product_no)
+);
+
+#DML
+#권한 입력
+INSERT INTO authority (id, name)
+	VALUES (10, 'ADMIN');
+	
+INSERT INTO authority (id, name)
+	VALUES (20, 'USER');
+
+# 사용자 입력	
+INSERT INTO user (id, password, user_name, birth, phone, address)
+	VALUES ('hona1', '1234', '관리자1', STR_TO_DATE('1993-01-02', '%Y-%m-%d'), 01011112222, '서울시 금천구');
+	
+INSERT INTO user (id, password, user_name, birth, phone, address)
+	VALUES ('hona2', '1234', '유저1', STR_TO_DATE('1993-01-02', '%Y-%m-%d'), 01011112222, '서울시 금천구');
+	
+INSERT INTO user (id, password, user_name, birth, phone, address)
+	VALUES ('hona3', '1234', '유저2', STR_TO_DATE('1993-01-02', '%Y-%m-%d'), 01011112222, '서울시 금천구');
+	
+
+# 고객에게 권한 부여
+INSERT INTO user_authority VALUES (1, 10);
+INSERT INTO user_authority VALUES (2, 20);
+INSERT INTO user_authority VALUES (3, 20);
+
+
+
+SELECT * FROM user;
+SELECT * FROM authority;
+SELECT * FROM user_authority;
+SELECT * FROM product;
+SELECT * FROM payment;
+
+show tables;
