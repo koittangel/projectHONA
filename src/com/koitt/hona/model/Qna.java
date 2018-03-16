@@ -27,6 +27,62 @@ public class Qna implements Serializable {
 		this.regDate = regDate;
 		this.qnaAattachment = qnaAattachment;
 	}
+	
+	public Integer getQnaNo() {
+		return qnaNo;
+	}
+
+	public void setQnaNo(Integer qnaNo) {
+		this.qnaNo = qnaNo;
+	}
+
+	public Integer getProductNo() {
+		return productNo;
+	}
+
+	public void setProductNo(Integer productNo) {
+		this.productNo = productNo;
+	}
+
+	public String getQnaTitle() {
+		return qnaTitle;
+	}
+
+	public void setQnaTitle(String qnaTitle) {
+		this.qnaTitle = qnaTitle;
+	}
+
+	public String getQnaContent() {
+		return qnaContent;
+	}
+
+	public void setQnaContent(String qnaContent) {
+		this.qnaContent = qnaContent;
+	}
+
+	public Integer getUserNo() {
+		return userNo;
+	}
+
+	public void setUserNo(Integer userNo) {
+		this.userNo = userNo;
+	}
+
+	public Date getRegDate() {
+		return regDate;
+	}
+
+	public void setRegDate(Date regDate) {
+		this.regDate = regDate;
+	}
+
+	public String getQnaAattachment() {
+		return qnaAattachment;
+	}
+
+	public void setQnaAattachment(String qnaAattachment) {
+		this.qnaAattachment = qnaAattachment;
+	}
 
 	@Override
 	public int hashCode() {
