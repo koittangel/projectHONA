@@ -12,8 +12,6 @@ target/
 *.exe
 *.o
 *.so
-*.classpath
-*.project
  
 # Packages #
 ############
