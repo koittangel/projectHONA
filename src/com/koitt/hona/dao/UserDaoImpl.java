@@ -2,6 +2,7 @@ package com.koitt.hona.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.koitt.hona.model.User;
@@ -13,27 +14,32 @@ public class UserDaoImpl implements UserDao {
 	@Autowired
 	private SqlSession session;
 	
+	public UserDaoImpl() {}
+	
+	
+	// 유저 전체 조회
 	@Override
 	public List<User> selectAll() {
 		List<User> list = null;
-		try {
-			list = session.selectList(MAPPER_NS + ".select-all-user");
-			
-			
-		}
 		
-		return null;
+		list = session.selectList(MAPPER_NS + ".select-all-user");
+
+		return list;
 	}
 
+	// 유저 유저번호를 이용해 1명 조회
 	@Override
 	public User select(Integer userNo) {
-		// TODO Auto-generated method stub
-		return null;
+		User user = null;
+		
+		user = session.selectOne(MAPPER_NS + ".select-user", userNo);
+		
+		return user;
 	}
 
 	@Override
 	public void insert(User user) {
-		// TODO Auto-generated method stub
+		session.insert(MAPPER_NS + ".insert-users", user);
 		
 	}
 
@@ -45,7 +51,7 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public void update(User user) {
-		// TODO Auto-generated method stub
+		session.update(MAPPER_NS + "update-user", user);
 		
 	}
 
