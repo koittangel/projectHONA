@@ -4,7 +4,7 @@ DROP TABLE authority;
 DROP TABLE product;
 DROP TABLE user;
 
-# °í°´ Á¤ÀÇ Å×ÀÌºí
+# ê³ ê° ì •ì˜ í…Œì´ë¸”
 CREATE TABLE user (
 	user_no 	INT 			NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	id 			VARCHAR(15) 	NOT NULL,
@@ -15,13 +15,13 @@ CREATE TABLE user (
 	address 	VARCHAR(255)	NOT NULL
 );
 
-# »ç¿ëÀÚ ±ÇÇÑ Á¤ÀÇÇÑ Å×ÀÌºí
+# ì‚¬ìš©ìž ê¶Œí•œ ì •ì˜í•œ í…Œì´ë¸”
 CREATE TABLE authority (
 	id		INT 		NOT NULL PRIMARY KEY,
 	name	VARCHAR(30)	NOT NULL
 );
 
-# »ç¿ëÀÚ ¹øÈ£¿Í »ç¿ëÀÚ ±ÇÇÑ ¾ÆÀÌµð°ªÀ» ¿¬°áÇÏ´Â Å×ÀÌºí
+# ì‚¬ìš©ìž ë²ˆí˜¸ì™€ ì‚¬ìš©ìž ê¶Œí•œ ì•„ì´ë””ê°’ì„ ì—°ê²°í•˜ëŠ” í…Œì´ë¸”
 CREATE TABLE user_authority (
 	user_no 		INT NOT NULL,
 	authority_id 	INT NOT NULL,
@@ -29,7 +29,7 @@ CREATE TABLE user_authority (
 	FOREIGN KEY (authority_id)	REFERENCES authority(id)
 );
 
-# »óÇ°À» Á¤ÀÇÇÑ Å×ÀÌºí
+# ìƒí’ˆì„ ì •ì˜í•œ í…Œì´ë¸”
 CREATE TABLE product(
 	product_no		INT				NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	product_type	VARCHAR(30) 	NOT NULL,
@@ -41,7 +41,7 @@ CREATE TABLE product(
 	attachment		VARCHAR(255)	NOT NULL
 );
 
-# °áÁ¦ Á¤º¸¸¦ Á¤ÀÇÇÑ Å×ÀÌºí
+# ê²°ì œ ì •ë³´ë¥¼ ì •ì˜í•œ í…Œì´ë¸”
 CREATE TABLE payment (
 	payment_no		INT				NOT NULL	AUTO_INCREMENT PRIMARY KEY,
 	user_no			INT				NOT NULL,
@@ -56,25 +56,25 @@ CREATE TABLE payment (
 );
 
 #DML
-#±ÇÇÑ ÀÔ·Â
+#ê¶Œí•œ ìž…ë ¥
 INSERT INTO authority (id, name)
 	VALUES (10, 'ADMIN');
 	
 INSERT INTO authority (id, name)
 	VALUES (20, 'USER');
 
-# »ç¿ëÀÚ ÀÔ·Â	
+# ì‚¬ìš©ìž ìž…ë ¥	
 INSERT INTO user (id, password, user_name, birth, phone, address)
-	VALUES ('hona1', '1234', '°ü¸®ÀÚ1', STR_TO_DATE('1993-01-02', '%Y-%m-%d'), 01011112222, '¼­¿ï½Ã ±ÝÃµ±¸');
+	VALUES ('hona1', '1234', 'ê´€ë¦¬ìž1', STR_TO_DATE('1993-01-02', '%Y-%m-%d'), 01011112222, 'ì„œìš¸ì‹œ ê¸ˆì²œêµ¬');
 	
 INSERT INTO user (id, password, user_name, birth, phone, address)
-	VALUES ('hona2', '1234', 'À¯Àú1', STR_TO_DATE('1993-01-02', '%Y-%m-%d'), 01011112222, '¼­¿ï½Ã ±ÝÃµ±¸');
+	VALUES ('hona2', '1234', 'ìœ ì €1', STR_TO_DATE('1993-01-02', '%Y-%m-%d'), 01011112222, 'ì„œìš¸ì‹œ ê¸ˆì²œêµ¬');
 	
 INSERT INTO user (id, password, user_name, birth, phone, address)
-	VALUES ('hona3', '1234', 'À¯Àú2', STR_TO_DATE('1993-01-02', '%Y-%m-%d'), 01011112222, '¼­¿ï½Ã ±ÝÃµ±¸');
+	VALUES ('hona3', '1234', 'ìœ ì €2', STR_TO_DATE('1993-01-02', '%Y-%m-%d'), 01011112222, 'ì„œìš¸ì‹œ ê¸ˆì²œêµ¬');
 	
 
-# °í°´¿¡°Ô ±ÇÇÑ ºÎ¿©
+# ê³ ê°ì—ê²Œ ê¶Œí•œ ë¶€ì—¬
 INSERT INTO user_authority VALUES (1, 10);
 INSERT INTO user_authority VALUES (2, 20);
 INSERT INTO user_authority VALUES (3, 20);
