@@ -3,7 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-  <mapper namespace="com.koitt.hona.model.product">
+  <mapper namespace="com.koitt.hona.model.Product">
   	<insert id="insert-product" parameterType="Product">
   		INSERT INTO product (product_no, product_type, product_name, EA, price, inventory, explaination, attachment)
   		VALUES (#{productNo}, #{productType}, #{productName}, #{EA}, #{price}, #{inventory}, #{explaination}, #{attachment}) 
@@ -13,7 +13,7 @@
   		<id property="productNo" column="product_no"/>
   		<result property="productType" column="product_type"/>
   		<result property="productName" column="product_name"/>
-  		<result property="EA" column="EA"/>
+  		<result property="EA" column="ea"/>
   		<result property="price" column="price"/>
   		<result property="inventory" column="inventory"/>
   		<result property="explaination" column="explaination"/>

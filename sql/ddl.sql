@@ -93,8 +93,6 @@ INSERT INTO user (id, password, user_name, birth, phone, address)
 INSERT INTO user (id, password, user_name, birth, phone, address)
 	VALUES ('hona3', '1234', '유저2', STR_TO_DATE('1993-01-02', '%Y-%m-%d'), 01011112222, '서울시 금천구');
 
-INSERT INTO product (product_type, product_name, EA, price, inventory, explaination, attachment)
-	VALUES ('상의', '반팔티', 1, 1, 1, '끝장나는 반팔티', NULL);
 
 # 고객에게 권한 부여
 INSERT INTO user_authority VALUES (1, 10);

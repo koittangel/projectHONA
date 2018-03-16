@@ -13,13 +13,13 @@ public class Product {
 
 	public Product() {}
 
-	public Product(Integer productNo, String productType, String productName, Integer price, Integer eA,
+	public Product(Integer productNo, String productType, String productName, Integer price, Integer EA,
 			Integer inventory, String explaination, String attachment) {
 		this.productNo = productNo;
 		this.productType = productType;
 		this.productName = productName;
 		this.price = price;
-		EA = eA;
+		this.EA = EA;
 		this.inventory = inventory;
 		this.explaination = explaination;
 		this.attachment = attachment;
@@ -61,8 +61,8 @@ public class Product {
 		return EA;
 	}
 
-	public void setEA(Integer eA) {
-		EA = eA;
+	public void setEA(Integer EA) {
+		this.EA = EA;
 	}
 
 	public Integer getInventory() {

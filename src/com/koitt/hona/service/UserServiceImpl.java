@@ -1,8 +1,6 @@
 package com.koitt.hona.service;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,14 +9,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.koitt.hona.dao.AuthorityDao;
 import com.koitt.hona.dao.UserDao;
 import com.koitt.hona.model.Authority;
-import com.koitt.hona.model.AuthorityId;
 import com.koitt.hona.model.User;
 import com.koitt.hona.model.UserException;
 
