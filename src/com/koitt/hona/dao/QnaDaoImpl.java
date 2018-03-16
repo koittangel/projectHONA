@@ -2,12 +2,20 @@ package com.koitt.hona.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.koitt.hona.model.Qna;
 import com.koitt.hona.model.QnaException;
 
 public class QnaDaoImpl implements QnaDao {
 	
 	private static final String MAPPERS_NS = Qna.class.getName();
+	
+	@Autowired
+	private SqlSession session;
+	
+	public QnaDaoImpl() {}
 
 	@Override
 	public void insert(Qna qna) throws QnaException {
