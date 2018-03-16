@@ -5,8 +5,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
-import com.koitt.board.model.Users;
-
 public class User implements Serializable{
 
 	private Integer userNo;		// 유저 번호
