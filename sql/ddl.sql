@@ -1,7 +1,9 @@
+DROP TABLE notice;
 DROP TABLE user_authority;
+DROP TABLE qna;
 DROP TABLE payment;
-DROP TABLE authority;
 DROP TABLE product;
+DROP TABLE authority;
 DROP TABLE user;
 
 # 고객 정의 테이블
