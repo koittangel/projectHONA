@@ -14,7 +14,8 @@ CREATE TABLE user (
 	user_name 	VARCHAR(30) 	NOT NULL,
 	birth 		DATE 			NOT NULL,
 	phone 		INT				NOT NULL,
-	address 	VARCHAR(255)	NOT NULL
+	address 	VARCHAR(255)	NOT NULL,
+	UNIQUE(id)
 );
 
 # 사용자 권한 정의한 테이블
