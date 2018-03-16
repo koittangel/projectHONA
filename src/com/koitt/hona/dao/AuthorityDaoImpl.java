@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.koitt.hona.model.Authority;
+import com.koitt.hona.model.UserException;
 
 @Repository
 public class AuthorityDaoImpl implements AuthorityDao {
@@ -17,17 +18,16 @@ public class AuthorityDaoImpl implements AuthorityDao {
 	public AuthorityDaoImpl() {}
 	
 	@Override
-	public Authority select(Integer id) {
+	public Authority select(Integer id) throws UserException {
 		Authority authority = null;
 		
 		try {
 			authority = session.selectOne(MAPPER_NS + ".select_authority", id);
 			
 		} catch (Exception e) {
-			
+			throw new UserException(e.getMessage());
 		}
-		
-		return null;
+		return authority;
 	}
 
 }
