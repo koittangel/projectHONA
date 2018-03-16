@@ -4,9 +4,11 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import com.koitt.hona.model.User;
 
+@Repository
 public class UserDaoImpl implements UserDao {
 	
 	private static final String MAPPER_NS = User.class.getName();
@@ -39,7 +41,7 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public void insert(User user) {
-		session.insert(MAPPER_NS + ".insert-users", user);
+		session.insert(MAPPER_NS + ".insert-user", user);
 		
 	}
 
@@ -51,7 +53,7 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public void update(User user) {
-		session.update(MAPPER_NS + "update-user", user);
+		session.update(MAPPER_NS + ".update-user", user);
 		
 	}
 
@@ -67,7 +69,7 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public void insertAuthority(User user) {
-		// TODO Auto-generated method stub
+		session.insert(MAPPER_NS + ".insert-authority", user);
 		
 	}
 
