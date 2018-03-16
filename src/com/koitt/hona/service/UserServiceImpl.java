@@ -34,12 +34,22 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public List<User> list() {
-		return userDao.selectAll();
+		try {
+			return userDao.selectAll();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 	@Override
 	public User detail(Integer userNo) {
-		return userDao.select(userNo);
+		try {
+			return userDao.select(userNo);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 	// 유저추가

@@ -16,29 +16,33 @@ public class QnaServiceImpl implements QnaService {
 	
 	public QnaServiceImpl() {}
 
+	// 문의글 작성
 	@Override
 	public void add(Qna qna) throws QnaException {
 		dao.insert(qna);
 	}
-
+	
+	// 문의글 번호를 이용하여 글 하나 불러오기
 	@Override
 	public Qna detail(String qnaNo) throws QnaException {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.select(qnaNo);
 	}
-
+	
+	// 전체 문의글 불러오기
 	@Override
 	public List<Qna> list() throws QnaException {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	
+	// 문의글 수정하기
 	@Override
 	public String modify(Qna qna) throws QnaException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+	// 문의글 삭제하기	
 	@Override
 	public String remove(String qnaNo) throws QnaException {
 		// TODO Auto-generated method stub

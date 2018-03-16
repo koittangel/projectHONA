@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.koitt.hona.model.Qna;
 import com.koitt.hona.model.QnaException;
+import com.koitt.hona.model.User;
+import com.koitt.hona.model.UserException;
 import com.koitt.hona.service.FileService;
 import com.koitt.hona.service.QnaService;
 import com.koitt.hona.service.UserService;
@@ -25,11 +27,28 @@ public class QnaWebController {
 	@Autowired
 	private QnaService qnaService;
 	
-/*	@Autowired
-	private UserService userService;*/
+	@Autowired
+	private UserService userService;
 	
 	@Autowired
 	private FileService fileService;
+	
+	// 문의글 작성 화면
+	@RequestMapping(value="/qna-add.do", method=RequestMethod.GET)
+	public String add(Model model) {
+		String id = userService.getPrincipal().getUsername();
+
+		try {
+			User user = userService.detailById(id);
+			user.setPassword(null);
+			model.addAttribute("user", user);
+			
+		} catch (UserException e) {
+			System.out.println(e.getMessage());
+			model.addAttribute("error", "server");
+		}
+		return "qna-add";
+	}
 	
 	// 문의글 상세 화면
 	@RequestMapping(value="/qna-detail.do", method=RequestMethod.GET)
@@ -73,11 +92,7 @@ public class QnaWebController {
 	}
 	
 	
-	// 문의글 작성 화면
-	@RequestMapping(value="/qna-add.do", method=RequestMethod.GET)
-	public String add(Model model) {
-		return "qna-add";
-	}
+
 	 
 
 }

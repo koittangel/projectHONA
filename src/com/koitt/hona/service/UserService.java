@@ -13,9 +13,9 @@ import com.koitt.hona.model.UserException;
 
 public interface UserService {
 
-	public List<User> list();
+	public List<User> list() throws UserException;
 	
-	public User detail(Integer userNo);
+	public User detail(Integer userNo) throws UserException;
 	
 	public void add(User user);
 	

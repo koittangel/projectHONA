@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.koitt.hona.model.User;
+import com.koitt.hona.model.UserException;
 import com.koitt.hona.service.FileService;
 import com.koitt.hona.service.UserService;
 
@@ -29,10 +30,14 @@ public class UserWebController {
 	
 	// 사용자 목록
 	@RequestMapping(value="/admin/users-list.do", method=RequestMethod.GET)
-	public String list(Model model, HttpServletRequest req) {
+	public String list(Model model, HttpServletRequest req) throws UserException {
 		List<User> list = null;
 		
-		list = userService.list();
+		try {
+			list = userService.list();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
 		
 		model.addAttribute("list", list);
 		model.addAttribute("uploadPath", fileService.getUploadPath(req));
@@ -75,11 +80,18 @@ public class UserWebController {
 	// 로그아웃
 	@RequestMapping(value="/logout.do", method=RequestMethod.GET)
 	public String logout(HttpServletRequest req, HttpServletResponse resp) {
-		// 서비스의 로그아웃 메소드 호출
 		userService.logout(req, resp);
 		
-		// 로그아웃 한 뒤 로그인 페이지로 이동 후 로그아웃 메시지 출력을 위해 쿼리문자열 사용
 		return "redirect:/login.do?logout=true";
+	}
+	
+	// 접근 제한 페이지
+	@RequestMapping(value="/access-denied.do", method=RequestMethod.GET)
+	public String accessDenied(Model model) {
+		
+		model.addAttribute("id", userService.getPrincipal().getUsername());
+		
+		return "access-denied";
 	}
 	
 }

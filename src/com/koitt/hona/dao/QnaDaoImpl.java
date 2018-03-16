@@ -18,7 +18,8 @@ public class QnaDaoImpl implements QnaDao {
 	private SqlSession session;
 	
 	public QnaDaoImpl() {}
-
+	
+	// 문의글 작성
 	@Override
 	public void insert(Qna qna) throws QnaException {
 		try {
@@ -29,24 +30,28 @@ public class QnaDaoImpl implements QnaDao {
 		}
 	}
 
+	// 문의글 번호를 이용하여 글 하나 불러오기
 	@Override
 	public Qna select(String qnaNo) throws QnaException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+	// 전체 문의글 불러오기
 	@Override
 	public List<Qna> selectAll() throws QnaException {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	
+	// 문의글 수정하기
 	@Override
 	public void update(Qna qna) throws QnaException {
 		// TODO Auto-generated method stub
 		
 	}
 
+	// 문의글 삭제하기
 	@Override
 	public void delete(String qnaNo) throws QnaException {
 		// TODO Auto-generated method stub
