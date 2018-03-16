@@ -21,6 +21,7 @@ public class AuthorityDaoImpl implements AuthorityDao {
 		Authority authority = null;
 		
 		try {
+			authority = session.selectOne(MAPPER_NS + ".select_authority", id);
 			
 		} catch (Exception e) {
 			
