@@ -11,6 +11,7 @@
   	</settings>
   	
   	<typeAliases>
+  		<typeAlias type="com.koitt.hona.model.Product" alias="Product"/>
   		<typeAlias type="com.koitt.hona.model.User" alias="User"/>
   		<typeAlias type="com.koitt.hona.model.Authority" alias="Authority"/>
   		<typeAlias type="com.koitt.hona.model.Basket" alias="Basket"/>
