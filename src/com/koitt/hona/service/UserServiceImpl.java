@@ -85,7 +85,7 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public User detailById(String id) {
+	public User detailById(String id) throws UserException {
 		return userDao.selectById(id);
 	}
 

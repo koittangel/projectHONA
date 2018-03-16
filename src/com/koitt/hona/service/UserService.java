@@ -24,7 +24,7 @@ public interface UserService {
 	public String modify(User users);
 	
 	// 유저 Id로 사용자의 모든 정보 가져오기
-	public User detailById(String id);
+	public User detailById(String id) throws UserException;
 	
 	// 사용자 권한 가져오기
 	public Authority getAuthority(Integer id) throws UserException;

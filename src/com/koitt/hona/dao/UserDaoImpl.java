@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.koitt.hona.model.User;
+import com.koitt.hona.model.UserException;
 
 @Repository
 public class UserDaoImpl implements UserDao {
@@ -58,7 +59,7 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public User selectById(String Id) {
+	public User selectById(String Id) throws UserException {
 		User user = null;
 		
 		user = session.selectOne(MAPPER_NS + ".select-user-by-id");
