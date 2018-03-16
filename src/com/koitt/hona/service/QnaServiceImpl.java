@@ -16,8 +16,7 @@ public class QnaServiceImpl implements QnaService {
 
 	@Override
 	public void add(Qna qna) throws QnaException {
-		// TODO Auto-generated method stub
-		
+		dao.insert(qna);
 	}
 
 	@Override
