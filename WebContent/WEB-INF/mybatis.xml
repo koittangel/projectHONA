@@ -2,6 +2,7 @@
 <!DOCTYPE configuration
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
+ 
   
   <configuration>
   	<settings>
@@ -11,7 +12,9 @@
   	
   	<typeAliases>
   		<typeAlias type="com.koitt.hona.model.User" alias="User"/>
-  		<typeAlias type="com.koitt.hona.Authority" alias="Authority"/>
-  		<typeAlias type="com.koitt.hona.Basket" alias="Basket"/>
+  		<typeAlias type="com.koitt.hona.model.Authority" alias="Authority"/>
+  		<typeAlias type="com.koitt.hona.model.Basket" alias="Basket"/>
   	</typeAliases>
   </configuration>
+  
+  

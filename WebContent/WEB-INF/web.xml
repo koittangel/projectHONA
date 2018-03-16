@@ -16,9 +16,10 @@
 		dispatcher-servlet.xml 스프링 설정은 해당 servlet 영역에만 설정값이
 		적용된다.
 	-->
+
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>/WEB-INF/applicationContext.xml</param-value>
+		<param-value>/WEB-INF/dispatcher-servlet.xml</param-value>
 	</context-param>
 	
 	<!--
