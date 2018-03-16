@@ -8,31 +8,30 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.koitt.hona.model.User;
-import com.koitt.hona.model.UserException;
+import com.koitt.hona.service.FileService;
 import com.koitt.hona.service.UserService;
 
+@Controller
 public class UserWebController {
 	
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private FileService fileService;
 	
 	// 사용자 목록
 	@RequestMapping(value="/admin/users-list.do", method=RequestMethod.GET)
 	public String list(Model model, HttpServletRequest req) {
 		List<User> list = null;
 		
-		try {
-			list = userService.list();
-			
-		} catch (UserException e) {
-			System.out.println(e.getMessage());
-			model.addAttribute("error", "server");
-		}
+		list = userService.list();
 		
 		model.addAttribute("list", list);
 		model.addAttribute("uploadPath", fileService.getUploadPath(req));

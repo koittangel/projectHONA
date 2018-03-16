@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+    <resultMap type="User" id="UserResultMap">
+  		<id property="userNo" column="user_no" />
+  		<result property="id" column="id"/>
+  		<result property="password" column="password"/>
+  		<result property="userName" column="user_name"/>
+  		<result property="birth" column="birth"/>
+  		<result property="phone" column="phone"/>
+  		<result property="address" column="address"/>
+  		<collection property="authorities" ofType="Authority">
+  			<id property="id" column="id" />
+  			<result property="name" column="aname"/>
+  		</collection>
+  	</resultMap>
+  	
+  	<insert id="insert-user" parameterType="User" 
+  		useGeneratedKeys="true" keyProperty="user_no">
+  		INSERT INTO users (id, password, user_name, birth, phone, address)
+  		VALUES (#{id}, #{password}, #{userName}, #{birth}, #{phone}, #{address})
+  	</insert>
