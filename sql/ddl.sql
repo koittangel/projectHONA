@@ -38,7 +38,7 @@ CREATE TABLE product(
 	EA				INT				NOT NULL,
 	inventory		INT				NOT NULL,
 	explaination	VARCHAR(255)	NOT NULL,
-	attachment		VARCHAR(255)	NOT NULL
+	attachment		VARCHAR(255)
 );
 
 # 결제 정보를 정의한 테이블
@@ -46,13 +46,30 @@ CREATE TABLE payment (
 	payment_no		INT				NOT NULL	AUTO_INCREMENT PRIMARY KEY,
 	user_no			INT				NOT NULL,
 	product_no		INT 			NOT NULL,
-	buyer_name		VARCHAR(10)		NOT NULL,
-	buyer_address	VARCHAR(255)	NOT NULL,
-	buyer_phone		INT				NOT NULL,
-	buyer_email		VARCHAR(255)	NOT NULL,
 	total_price		INT				NOT NULL,
 	FOREIGN KEY (user_no) REFERENCES user(user_no),
 	FOREIGN KEY (product_no) REFERENCES product(product_no)
+);
+
+# 문의 게시판 정보를 정의한 테이블
+CREATE TABLE qna (
+	qna_no 			INT				 NOT NULL PRIMARY KEY AUTO_INCREMENT PRIMARY KEY,
+	product_no		INT				 NULL,				
+	qna_title 		VARCHAR(30) 	 NOT NULL,
+	qna_content 	VARCHAR(255) 	 NOT NULL,
+	user_no 		INT 			 NOT NULL,
+	reg_date 		DATE 			 NOT NULL,
+	qna_attachment 	VARCHAR(255)	 NULL,
+	FOREIGN KEY (user_no) REFERENCES user(user_no),
+	FOREIGN KEY (product_no) REFERENCES product(product_no)
+);
+
+# 공지사항 게시판 정보를 정의한 테이블
+CREATE TABLE notice (
+	notice_no 		INT				 NOT NULL PRIMARY KEY AUTO_INCREMENT PRIMARY KEY,		
+	notice_title 	VARCHAR(30) 	 NOT NULL,
+	notice_content 	VARCHAR(255) 	 NOT NULL,
+	reg_date 		DATE 			 NOT NULL,
 );
 
 #DML
@@ -86,5 +103,7 @@ SELECT * FROM authority;
 SELECT * FROM user_authority;
 SELECT * FROM product;
 SELECT * FROM payment;
+SELECT * FROM qna;
+
 
 show tables;
