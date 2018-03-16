@@ -19,8 +19,12 @@ public class QnaDaoImpl implements QnaDao {
 
 	@Override
 	public void insert(Qna qna) throws QnaException {
-		// TODO Auto-generated method stub
-		
+		try {
+			session.insert(MAPPERS_NS + ".insert-qna", qna); 
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			throw new QnaException(e.getMessage());
+		}
 	}
 
 	@Override
