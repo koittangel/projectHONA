@@ -1,5 +1,6 @@
 package com.koitt.hona.controller;
 
+import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.Date;
 import java.util.List;
@@ -18,7 +19,7 @@ import com.koitt.hona.service.UserService;
 public class UserWebController {
 	
 	@Autowired
-	private UserService usersService;
+	private UserService userService;
 	
 	// 사용자 목록
 	@RequestMapping(value="/admin/users-list.do", method=RequestMethod.GET)
@@ -26,7 +27,7 @@ public class UserWebController {
 		List<User> list = null;
 		
 		try {
-			list = usersService.list();
+			list = userService.list();
 			
 		} catch (UserException e) {
 			System.out.println(e.getMessage());
@@ -47,7 +48,7 @@ public class UserWebController {
 
 	public String join(HttpServletRequest req,
 			String id, String password, String userName, Date birth, Integer phone,
-			String address) {
+			String address) throws UnsupportedEncodingException {
 		User user = new User(null, id, password, userName, birth, phone, address);
 		
 		userService.add(user);

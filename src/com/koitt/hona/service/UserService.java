@@ -9,6 +9,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import com.koitt.hona.model.Authority;
 import com.koitt.hona.model.User;
+import com.koitt.hona.model.UserException;
 
 public interface UserService {
 
@@ -22,11 +23,11 @@ public interface UserService {
 	
 	public String modify(User users);
 	
-	// 이메일로 사용자의 모든 정보 가져오기
-	public User detailByEmail(String email);
+	// 유저 Id로 사용자의 모든 정보 가져오기
+	public User detailById(String id);
 	
 	// 사용자 권한 가져오기
-	public Authority getAuthority(Integer id);
+	public Authority getAuthority(Integer id) throws UserException;
 	
 	/*
 	 *  Principal 객체 가져오기

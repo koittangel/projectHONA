@@ -5,8 +5,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
-import com.koitt.board.model.Authority;
-import com.koitt.board.model.Board;
+import com.koitt.board.model.Users;
 
 public class User implements Serializable{
 
@@ -92,6 +91,14 @@ public class User implements Serializable{
 	public void setAddress(String address) {
 		this.address = address;
 	}
+	
+	public Set<Authority> getAuthorities() {
+		return authorities;
+	}
+
+	public void setAuthorities(Set<Authority> authorities) {
+		this.authorities = authorities;
+	}
 
 	// hashcode 자동완성
 	@Override
@@ -111,57 +118,53 @@ public class User implements Serializable{
 	// equals 자동완성
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
+		// 1. 주소 비교
+		if (this == obj) {
 			return true;
-		if (obj == null)
+		}
+		
+		// 2. 비교하는 클래스가 같은 타입인지 검사
+		if (!(obj instanceof User)) {
 			return false;
-		if (getClass() != obj.getClass())
-			return false;
+		}
+		
+		// 3. userNo가 같다면 같은 회원으로 인식
 		User other = (User) obj;
-		if (address == null) {
-			if (other.address != null)
-				return false;
-		} else if (!address.equals(other.address))
-			return false;
-		if (birth == null) {
-			if (other.birth != null)
-				return false;
-		} else if (!birth.equals(other.birth))
-			return false;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
-			return false;
-		if (password == null) {
-			if (other.password != null)
-				return false;
-		} else if (!password.equals(other.password))
-			return false;
-		if (phone == null) {
-			if (other.phone != null)
-				return false;
-		} else if (!phone.equals(other.phone))
-			return false;
-		if (userName == null) {
-			if (other.userName != null)
-				return false;
-		} else if (!userName.equals(other.userName))
-			return false;
-		if (userNo == null) {
-			if (other.userNo != null)
-				return false;
-		} else if (!userNo.equals(other.userNo))
-			return false;
-		return true;
+		if (this.userNo.equals(other.userNo)) {
+			return true;
+		}
+		
+		return false;
 	}
 
 	// toString 자동완성 
 	@Override
 	public String toString() {
-		return "User [userNo=" + userNo + ", id=" + id + ", password=" + password + ", userName=" + userName
-				+ ", birth=" + birth + ", phone=" + phone + ", address=" + address + "]";
+		StringBuilder builder = new StringBuilder();
+		builder.append("User [userNo=");
+		builder.append(userNo);
+		builder.append(", id=");
+		builder.append(id);
+		builder.append(", password=");
+		builder.append(password);
+		builder.append(", userName=");
+		builder.append(userName);
+		builder.append(", birth=");
+		builder.append(birth);
+		builder.append(", phone=");
+		builder.append(phone);
+		builder.append(", address=");
+		builder.append(address);
+		builder.append(", userList=");
+		builder.append(userList);
+		builder.append(", authorities=");
+		builder.append(authorities);
+		builder.append("]");
+		return builder.toString();
 	}
+
+
+	
 
 
 

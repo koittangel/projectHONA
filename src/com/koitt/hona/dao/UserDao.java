@@ -21,8 +21,8 @@ public interface UserDao{
 	// 유저 회원정보 수정
 	public void update(User user);
 
-	// 이메일로 사용자의 모든 정보 가져오기
-	public User selectByEmail(String email);
+	// 유저Id를 이용해 사용자의 모든 정보 가져오기
+	public User selectById(String Id);
 	
 	// users_authority 테이블에 정보를 입력하기
 	public void insertAuthority(User user);

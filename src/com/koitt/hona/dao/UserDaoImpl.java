@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.koitt.hona.model.User;
 
 public class UserDaoImpl implements UserDao {
-
+	
 	private static final String MAPPER_NS = User.class.getName();
 	
 	@Autowired
@@ -55,11 +55,13 @@ public class UserDaoImpl implements UserDao {
 		
 	}
 
-
 	@Override
-	public User selectByEmail(String email) {
-		// TODO Auto-generated method stub
-		return null;
+	public User selectById(String Id) {
+		User user = null;
+		
+		user = session.selectOne(MAPPER_NS + ".select-user-by-id");
+		
+		return user;
 	}
 
 
@@ -93,7 +95,7 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public void deleteAllUsersAuthority() {
-		// TODO Auto-generated method stub
+		session.delete(MAPPER_NS + "delete-all-user-authority");
 		
 	}
 
@@ -103,5 +105,6 @@ public class UserDaoImpl implements UserDao {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
 
 }
