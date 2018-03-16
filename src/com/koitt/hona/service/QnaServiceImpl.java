@@ -3,11 +3,13 @@ package com.koitt.hona.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.koitt.hona.dao.QnaDao;
 import com.koitt.hona.model.Qna;
 import com.koitt.hona.model.QnaException;
 
+@Service
 public class QnaServiceImpl implements QnaService {
 	@Autowired
 	private QnaDao dao;

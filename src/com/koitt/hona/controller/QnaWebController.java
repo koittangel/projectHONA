@@ -25,8 +25,8 @@ public class QnaWebController {
 	@Autowired
 	private QnaService qnaService;
 	
-	@Autowired
-	private UserService userService;
+/*	@Autowired
+	private UserService userService;*/
 	
 	@Autowired
 	private FileService fileService;
@@ -35,7 +35,7 @@ public class QnaWebController {
 	@RequestMapping(value="/qna-detail.do", method=RequestMethod.GET)
 	public String detail(Model model, 
 			HttpServletRequest request, 
-			@RequestParam(value="qnaNo", required=true) String qnaNo) {
+			@RequestParam(value="qnaNo", required=false) String qnaNo) {
 		
 		Qna qna = null;
 		String filename = null;

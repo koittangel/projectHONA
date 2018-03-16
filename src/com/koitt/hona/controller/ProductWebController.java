@@ -26,12 +26,12 @@ public class ProductWebController {
 	@Autowired
 	private ProductService productService;
 	
-	@Autowired
+/*	@Autowired
 	private UserService usersService;
 	
 	@Autowired
 	private FileService fileService;
-	
+	*/
 	// 상품 목록
 	@RequestMapping("/product-list.do")
 	public String list(Model model) {
@@ -52,7 +52,7 @@ public class ProductWebController {
 	// 상품 상세정보
 	@RequestMapping(value="/product-detail.do", method=RequestMethod.GET)
 	public String detail(Model model, HttpServletRequest request,
-			@RequestParam(value="productNo", required=true) String productNo) {
+			@RequestParam(value="productNo", required=false) String productNo) {
 		
 		Product product = null;
 		String filename = null;

@@ -24,7 +24,7 @@
   		SELECT FROM product WHERE product_no = #{productNo}
    	</select>
   	
-  	<select id="selectAll-book" resultMap="bookResultMap">
-  		SELECT FROM product
+  	<select id="select-all-product" resultMap="productResultMap">
+  		SELECT * FROM product
   	</select>
   </mapper>

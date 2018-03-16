@@ -3,6 +3,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:sec="http://www.springframework.org/schema/security"
 	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.2.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
@@ -10,6 +11,18 @@
 
 	<!-- 스프링 애노테이션 적용 범위 -->
 	<context:component-scan base-package="com.koitt"></context:component-scan>
+
+ 	<!-- 비밀번호 암호화하기 위해 빈 객체 선언 -->
+<!-- 	<bean id="bcryptEncoder"
+		class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" /> -->
+
+	<!--  인증 처리를 위한 클래스 지정 -->
+<!-- 	<sec:authentication-manager>
+		<sec:authentication-provider
+			user-service-ref="customUserDetailsService">
+			<sec:password-encoder ref="bcryptEncoder" />
+		</sec:authentication-provider>
+	</sec:authentication-manager>  -->
 
 	<!-- jdbc.properties 파일 불러오기 -->
 	<context:property-placeholder location="/WEB-INF/jdbc.properties" />

@@ -32,9 +32,9 @@ public class UserServiceImpl implements UserService{
 	@Autowired
 	private AuthorityDao authorityDao;
 	
-	// 비밀번호 암호화 
+/*	// 비밀번호 암호화 
 	@Autowired
-	private BCryptPasswordEncoder passwordEncoder;
+	private BCryptPasswordEncoder passwordEncoder;*/
 
 	@Override
 	public List<User> list() {
@@ -50,7 +50,7 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public void add(User user) {
 		
-		// 입력받은 비밀번호 암호화
+		/*// 입력받은 비밀번호 암호화
 		String encode = passwordEncoder.encode(user.getPassword());
 		user.setPassword(encode);
 		
@@ -69,7 +69,7 @@ public class UserServiceImpl implements UserService{
 		
 		// user_authority 테이블에 사용자 권한 정보 입력
 		userDao.insertAuthority(user);
-		
+		*/
 	}
 
 	@Override
