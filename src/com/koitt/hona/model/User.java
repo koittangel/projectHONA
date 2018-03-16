@@ -1,16 +1,24 @@
 package com.koitt.hona.model;
 
+import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
+import java.util.Set;
 
-public class User {
+import com.koitt.board.model.Authority;
+import com.koitt.board.model.Board;
 
-	Integer userNo;		// 유저 번호
-	String id;			// 유저 ID
-	String password;	// 유저 password
-	String userName;	// 유저 이름
-	Date birth;			// 유저 생일
-	Integer phone;		// 유저 연라겇
-	String address;		// 유저 주소
+public class User implements Serializable{
+
+	private Integer userNo;		// 유저 번호
+	private String id;			// 유저 ID
+	private String password;	// 유저 password
+	private String userName;	// 유저 이름
+	private Date birth;			// 유저 생일
+	private Integer phone;		// 유저 연락처
+	private String address;		// 유저 주소
+	private List<User> userList;		// 해당 사용자의 게시물 목록
+	private Set<Authority> authorities;	// 해당 사용자의 권한 목록
 
 	// 기본 생성자
 	public User() {}

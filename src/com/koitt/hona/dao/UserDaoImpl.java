@@ -55,4 +55,53 @@ public class UserDaoImpl implements UserDao {
 		
 	}
 
+
+	@Override
+	public User selectByEmail(String email) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public void insertAuthority(User user) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public Integer selectLastInsertId() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public void deleteAll() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public Integer getCount() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public void deleteAllUsersAuthority() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public Integer getCountUsersAuthority() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

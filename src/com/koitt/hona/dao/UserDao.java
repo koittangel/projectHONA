@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.koitt.hona.model.User;
 
-public interface UserDao {
+public interface UserDao{
 	
 	// list를 이용해 유저 전체목록 조회
 	public List<User> selectAll(); 
@@ -20,5 +20,26 @@ public interface UserDao {
 	
 	// 유저 회원정보 수정
 	public void update(User user);
+
+	// 이메일로 사용자의 모든 정보 가져오기
+	public User selectByEmail(String email);
+	
+	// users_authority 테이블에 정보를 입력하기
+	public void insertAuthority(User user);
+	
+	// 최근 등록한 사용자의 번호를 가져오기
+	public Integer selectLastInsertId();
+	
+	// 사용자 전체 삭제
+	public void deleteAll();
+	
+	// 사용자 수 가져오기
+	public Integer getCount();
+	
+	// users_authority 테이블 전체 삭제
+	public void deleteAllUsersAuthority();
+	
+	// users_authority 테이블 행의 수 가져오기
+	public Integer getCountUsersAuthority();
 	
 }
