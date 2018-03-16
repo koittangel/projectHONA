@@ -1,7 +1,9 @@
+DROP TABLE notice;
 DROP TABLE user_authority;
+DROP TABLE qna;
 DROP TABLE payment;
-DROP TABLE authority;
 DROP TABLE product;
+DROP TABLE authority;
 DROP TABLE user;
 
 # 고객 정의 테이블
@@ -53,7 +55,7 @@ CREATE TABLE payment (
 
 # 문의 게시판 정보를 정의한 테이블
 CREATE TABLE qna (
-	qna_no 			INT				 NOT NULL PRIMARY KEY AUTO_INCREMENT PRIMARY KEY,
+	qna_no 			INT				 NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	product_no		INT				 NULL,				
 	qna_title 		VARCHAR(30) 	 NOT NULL,
 	qna_content 	VARCHAR(255) 	 NOT NULL,
@@ -66,10 +68,10 @@ CREATE TABLE qna (
 
 # 공지사항 게시판 정보를 정의한 테이블
 CREATE TABLE notice (
-	notice_no 		INT				 NOT NULL PRIMARY KEY AUTO_INCREMENT PRIMARY KEY,		
+	notice_no 		INT				 NOT NULL AUTO_INCREMENT PRIMARY KEY,		
 	notice_title 	VARCHAR(30) 	 NOT NULL,
 	notice_content 	VARCHAR(255) 	 NOT NULL,
-	reg_date 		DATE 			 NOT NULL,
+	reg_date 		DATE 			 NOT NULL
 );
 
 #DML
@@ -104,6 +106,7 @@ SELECT * FROM user_authority;
 SELECT * FROM product;
 SELECT * FROM payment;
 SELECT * FROM qna;
+SELECT * FROM notice;
 
 
 show tables;
