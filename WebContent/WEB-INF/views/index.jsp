@@ -8,13 +8,9 @@
 	<h1>H O N A</h1>
 	<a href="<c:url value='/product/product-list.do'/>">상품 목록으로 이동</a>
 	<a href="<c:url value='/admin/users-list.do'/>">회원 목록으로 이동</a>
-	<sec:authorize access="!hasRole('ADMIN') and !hasRole('USER')">
-		<a href="<c:url value='/join.do'/>">회원 가입하기</a>
-		<a href="<c:url value='/login.do'/>">로그인하기</a>
-	</sec:authorize>
-	<sec:authorize access="hasRole('ADMIN') or hasRole('USER')">
-		<a href="<c:url value='/users-modify.do'/>">회원정보변경</a>
-		<a href="<c:url value='/logout.do'/>">로그아웃</a>
-	</sec:authorize>
+	<a href="<c:url value='/join.do'/>">회원 가입하기</a>
+	<a href="<c:url value='/login.do'/>">로그인하기</a>
+	<a href="<c:url value='/users-modify.do'/>">회원정보변경</a>
+	<a href="<c:url value='/logout.do'/>">로그아웃</a>
 </body>
 </html>
