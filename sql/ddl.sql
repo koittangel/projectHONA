@@ -108,24 +108,23 @@ SELECT * FROM payment;
 SELECT * FROM qna;
 SELECT * FROM notice;
 
-# 유저/관리자 중 골라서 조회
+# 유저번호와 권한 id, 권한 name이 보이는 테이블
 SELECT user_authority.user_no, authority.id, authority.name 
 FROM user_authority, authority
 WHERE user_authority.authority_id = authority.id;
 
-# 사용자 전체조회
+# 유저 번호로 사용자 전체조회
 SELECT u.user_no, u.id, u.password, u.user_name, ua.id, ua.name as "aname"
 FROM user u, (SELECT user_authority.user_no, authority.id, authority.name 
 				FROM user_authority, authority
 				WHERE user_authority.authority_id = authority.id) ua
 WHERE u.user_no = ua.user_no;
 
-# 한명만 조회
+# 유저 번호로 한명만 조회
 SELECT u.user_no, u.id, u.password, u.user_name, ua.id, ua.name as "aname"
 FROM user u, (SELECT user_authority.user_no, authority.id, authority.name 
 				FROM user_authority, authority
 				WHERE user_authority.authority_id = authority.id) ua
 WHERE u.user_no = ua.user_no AND u.user_no = 3;
-u.id = #{id}
 
 show tables;

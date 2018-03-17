@@ -13,14 +13,39 @@
   		<result property="birth" column="birth"/>
   		<result property="phone" column="phone"/>
   		<result property="address" column="address"/>
+  		<collection property="authorities" ofType="Authority">
+  			<id property="id" column="id"/>
+  			<result property="name" column="aname"/>
+  		</collection>
   	</resultMap>
   	
-  	<insert id="insert-user" parameterType="User" 
-  		useGeneratedKeys="true" keyProperty="user_no">
+  	<insert id="insert-user" parameterType="User" useGeneratedKeys="true" keyProperty="user_no">
   		INSERT INTO users (id, password, user_name, birth, phone, address)
   		VALUES (#{id}, #{password}, #{userName}, #{birth}, #{phone}, #{address})
   	</insert>
+  
+  	<insert id="insert-authority" parameterType="User">
+  		INSERT INTO user_authority(user_no, authority_id) VALUES
+  		<foreach collection="authorities" item="item" separator=", ">
+  			(#{userNo}, #{item.id})
+  		</foreach>
+  	</insert>
   	
+  	<select id="select-user" parameterType="int" resultMap="UserResultMap">
+  		SELECT u.user_no, u.id, u.password, u.user_name, ua.id, ua.name as "aname"
+		FROM user u, (SELECT user_authority.user_no, authority.id, authority.name 
+				FROM user_authority, authority
+				WHERE user_authority.authority_id = authority.id) ua
+		WHERE u.user_no = ua.user_no;
+  	</select>
+  	
+  	<select id="select-users-by-id" parameterType="String" resultMap="UserResultMap">
+  		SELECT u.user_no, u.id, u.password, u.user_name, ua.id, ua.name as "aname"
+		FROM user u, (SELECT user_authority.user_no, authority.id, authority.name 
+				FROM user_authority, authority
+				WHERE user_authority.authority_id = authority.id) ua
+		WHERE u.user_no = ua.user_no AND u.user_no = #{userNo};
+  	</select>
   	
   	
   </mapper>

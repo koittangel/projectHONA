@@ -14,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.koitt.hona.model.FileException;
 import com.koitt.hona.model.User;
 import com.koitt.hona.model.UserException;
 import com.koitt.hona.service.FileService;
@@ -58,10 +59,23 @@ public class UserWebController {
 			String address) throws UnsupportedEncodingException {
 		User user = new User(null, id, password, userName, birth, phone, address);
 		
-		userService.add(user);
-		String encodedName = URLEncoder.encode(user.getUserName(), "UTF-8");
-		
-		return "redirect:join-confirm.do?name=" + encodedName;
+		try {
+			
+			// 데이터베이스에 사용자 추가
+			userService.add(user);
+			String encodedName = URLEncoder.encode(user.getUserName(), "UTF-8");
+			
+			// 가입 환영 페이지로 이동
+			return "redirect:join-confirm.do?name=" + encodedName;
+			
+		} catch (UserException e) {
+			System.out.println(e.getMessage());
+			req.setAttribute("error", "server");
+		} catch (UnsupportedEncodingException e) {
+			System.out.println(e.getMessage());
+			req.setAttribute("error", "encoding");
+		}
+		return "redirect:index.do";
 	}
 	
 	// 가입 확인 페이지
@@ -79,7 +93,7 @@ public class UserWebController {
 	
 	// 로그아웃
 	@RequestMapping(value="/logout.do", method=RequestMethod.GET)
-	public String logout(HttpServletRequest req, HttpServletResponse resp) {
+	public String logout(HttpServletRequest req, HttpServletResponse resp) throws UserException {
 		userService.logout(req, resp);
 		
 		return "redirect:/login.do?logout=true";
@@ -87,7 +101,7 @@ public class UserWebController {
 	
 	// 접근 제한 페이지
 	@RequestMapping(value="/access-denied.do", method=RequestMethod.GET)
-	public String accessDenied(Model model) {
+	public String accessDenied(Model model) throws UserException {
 		
 		model.addAttribute("id", userService.getPrincipal().getUsername());
 		

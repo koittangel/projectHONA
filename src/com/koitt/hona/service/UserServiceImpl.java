@@ -1,6 +1,8 @@
 package com.koitt.hona.service;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -9,12 +11,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.koitt.hona.dao.AuthorityDao;
 import com.koitt.hona.dao.UserDao;
 import com.koitt.hona.model.Authority;
+import com.koitt.hona.model.AuthorityId;
 import com.koitt.hona.model.User;
 import com.koitt.hona.model.UserException;
 
@@ -28,35 +32,26 @@ public class UserServiceImpl implements UserService{
 	@Autowired
 	private AuthorityDao authorityDao;
 	
-/*	// 비밀번호 암호화 
+	// 비밀번호 암호화 
 	@Autowired
-	private BCryptPasswordEncoder passwordEncoder;*/
+	private BCryptPasswordEncoder passwordEncoder;
 
 	@Override
-	public List<User> list() {
-		try {
+	public List<User> list() throws UserException {
 			return userDao.selectAll();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return null;
 	}
 
 	@Override
-	public User detail(Integer userNo) {
-		try {
+	public User detail(Integer userNo) throws UserException {
 			return userDao.select(userNo);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return null;
+			
 	}
 
 	// 유저추가
 	@Override
-	public void add(User user) {
+	public void add(User user) throws UserException {
 		
-		/*// 입력받은 비밀번호 암호화
+		// 입력받은 비밀번호 암호화
 		String encode = passwordEncoder.encode(user.getPassword());
 		user.setPassword(encode);
 		
@@ -75,7 +70,7 @@ public class UserServiceImpl implements UserService{
 		
 		// user_authority 테이블에 사용자 권한 정보 입력
 		userDao.insertAuthority(user);
-		*/
+		
 	}
 
 	@Override
@@ -106,7 +101,7 @@ public class UserServiceImpl implements UserService{
 		
 		Object principal = auth.getPrincipal();
 		if (principal instanceof UserDetails) {
-			
+			return (UserDetails) principal;
 		}
 		return null;
 	}

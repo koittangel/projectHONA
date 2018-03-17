@@ -32,11 +32,13 @@ public class UserDaoImpl implements UserDao {
 
 	// 유저 유저번호를 이용해 1명 조회
 	@Override
-	public User select(Integer userNo) {
+	public User select(Integer userNo) throws UserException{
 		User user = null;
-		
+		try {
 		user = session.selectOne(MAPPER_NS + ".select-user", userNo);
-		
+		} catch (Exception e) {
+			throw new UserException(e.getMessage());
+		}
 		return user;
 	}
 
@@ -59,11 +61,14 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public User selectById(String Id) throws UserException {
+	public User selectById(String id) throws UserException {
 		User user = null;
 		
-		user = session.selectOne(MAPPER_NS + ".select-user-by-id");
-		
+		try {
+		user = session.selectOne(MAPPER_NS + "select-users-by-id", id);
+		} catch (Exception e) {
+			throw new UserException(e.getMessage());
+		}
 		return user;
 	}
 
@@ -76,9 +81,14 @@ public class UserDaoImpl implements UserDao {
 
 
 	@Override
-	public Integer selectLastInsertId() {
-		// TODO Auto-generated method stub
-		return null;
+	public Integer selectLastInsertId() throws UserException {
+		Integer lastInsertId = null;
+		try {
+		lastInsertId = session.selectOne(MAPPER_NS + ".select-last-insert-id");
+		} catch (Exception e) {
+			throw new UserException(e.getMessage());
+		}
+		return lastInsertId;
 	}
 
 
@@ -108,6 +118,7 @@ public class UserDaoImpl implements UserDao {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
 
 
 }
