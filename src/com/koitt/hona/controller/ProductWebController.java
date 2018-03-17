@@ -52,7 +52,7 @@ public class ProductWebController {
 	// 상품 상세정보
 	@RequestMapping(value="/product-detail.do", method=RequestMethod.GET)
 	public String detail(Model model, HttpServletRequest request,
-			@RequestParam(value="productNo", required=false) String productNo) {
+			@RequestParam(value="product_no", required=true) String productNo) {
 		
 		Product product = null;
 		String filename = null;
@@ -76,8 +76,7 @@ public class ProductWebController {
 		
 		model.addAttribute("product", product);
 		model.addAttribute("filename", filename);
-		if (imgPath != null && !imgPath.trim().isEmpty()) {
-			model.addAttribute("imgPath", imgPath);
+		if (imgPath != null && !imgPath.trim().isEmpty()) { model.addAttribute("imgPath", imgPath);
 		}
 		model.addAttribute("uploadPath", uploadPath);
 		

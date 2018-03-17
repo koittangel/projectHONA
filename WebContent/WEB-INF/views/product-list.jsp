@@ -14,7 +14,6 @@
 				<th>제품종류</th>
 				<th>제품이름</th>
 				<th>제품가격</th>
-				<th>주문개수</th>
 				<th>제품재고</th>
 				<th>제품설명</th>
 				<th>제품사진</th>
@@ -25,9 +24,8 @@
 				<tr>
 					<td>${ product.productNo }</td>
 					<td>${ product.productType }</td>
-					<td>${ product.productName }</td>
+					<td><a href="<c:url value='/product/product-detail.do?product_no=${ product.productNo }'/>">${ product.productName }</a></td>
 					<td>${ product.price }</td>
-					<td>${ product.EA }</td>
 					<td>${ product.inventory }</td>
 					<td>${ product.explaination }</td>
 					<td>${ product.attachment }</td>

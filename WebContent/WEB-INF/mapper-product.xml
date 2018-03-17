@@ -21,7 +21,7 @@
   	</resultMap>
   	
   	<select id="select-product" parameterType="String" resultMap="productResultMap">
-  		SELECT FROM product WHERE product_no = #{productNo}
+  		SELECT * FROM product WHERE product_no = #{ productNo }
    	</select>
   	
   	<select id="select-all-product" resultMap="productResultMap">
