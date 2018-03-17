@@ -10,7 +10,7 @@ DROP TABLE user;
 CREATE TABLE user (
 	user_no 	INT 			NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	id 			VARCHAR(15) 	NOT NULL,
-	password 	VARCHAR(20) 	NOT NULL,
+	password 	VARCHAR(255) 	NOT NULL,
 	user_name 	VARCHAR(30) 	NOT NULL,
 	birth 		DATE 			NOT NULL,
 	phone 		INT				NOT NULL,
@@ -85,20 +85,19 @@ INSERT INTO authority (id, name)
 
 # 사용자 입력	
 INSERT INTO user (id, password, user_name, birth, phone, address)
-	VALUES ('hona1', '1234', '관리자1', STR_TO_DATE('1993-01-02', '%Y-%m-%d'), 01011112222, '서울시 금천구');
+	VALUES ('hona1', '$2a$10$DFrlIB4d.kN5cbfIkYDHdO2AXeUV6xtbn1gMT6bTfPDMSJJw6bC.O', '관리자1', STR_TO_DATE('1993-01-02', '%Y-%m-%d'), 01011112222, '서울시 금천구');
 	
 INSERT INTO user (id, password, user_name, birth, phone, address)
-	VALUES ('hona2', '1234', '유저1', STR_TO_DATE('1993-01-02', '%Y-%m-%d'), 01011112222, '서울시 금천구');
+	VALUES ('hona2', '$2a$10$DFrlIB4d.kN5cbfIkYDHdO2AXeUV6xtbn1gMT6bTfPDMSJJw6bC.O', '유저1', STR_TO_DATE('1993-01-02', '%Y-%m-%d'), 01011112222, '서울시 금천구');
 	
 INSERT INTO user (id, password, user_name, birth, phone, address)
-	VALUES ('hona3', '1234', '유저2', STR_TO_DATE('1993-01-02', '%Y-%m-%d'), 01011112222, '서울시 금천구');
+	VALUES ('hona3', '$2a$10$DFrlIB4d.kN5cbfIkYDHdO2AXeUV6xtbn1gMT6bTfPDMSJJw6bC.O', '유저2', STR_TO_DATE('1993-01-02', '%Y-%m-%d'), 01011112222, '서울시 금천구');
 
 
 # 고객에게 권한 부여
 INSERT INTO user_authority VALUES (1, 10);
 INSERT INTO user_authority VALUES (2, 20);
 INSERT INTO user_authority VALUES (3, 20);
-
 
 
 SELECT * FROM user;
@@ -109,5 +108,24 @@ SELECT * FROM payment;
 SELECT * FROM qna;
 SELECT * FROM notice;
 
+# 유저/관리자 중 골라서 조회
+SELECT user_authority.user_no, authority.id, authority.name 
+FROM user_authority, authority
+WHERE user_authority.authority_id = authority.id;
+
+# 사용자 전체조회
+SELECT u.user_no, u.id, u.password, u.user_name, ua.id, ua.name as "aname"
+FROM user u, (SELECT user_authority.user_no, authority.id, authority.name 
+				FROM user_authority, authority
+				WHERE user_authority.authority_id = authority.id) ua
+WHERE u.user_no = ua.user_no;
+
+# 한명만 조회
+SELECT u.user_no, u.id, u.password, u.user_name, ua.id, ua.name as "aname"
+FROM user u, (SELECT user_authority.user_no, authority.id, authority.name 
+				FROM user_authority, authority
+				WHERE user_authority.authority_id = authority.id) ua
+WHERE u.user_no = ua.user_no AND u.user_no = 3;
+u.id = #{id}
 
 show tables;
