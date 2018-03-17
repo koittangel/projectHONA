@@ -31,22 +31,26 @@ public class QnaServiceImpl implements QnaService {
 	// 전체 문의글 불러오기
 	@Override
 	public List<Qna> list() throws QnaException {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.selectAll();
 	}
 	
 	// 문의글 수정하기
 	@Override
 	public String modify(Qna qna) throws QnaException {
-		// TODO Auto-generated method stub
-		return null;
+		Qna item = dao.select(qna.getQnaNo().toString());
+		String filename = item.getQnaAattachment();
+		dao.update(qna);
+		
+		return filename;
 	}
 
 	// 문의글 삭제하기	
 	@Override
 	public String remove(String qnaNo) throws QnaException {
-		// TODO Auto-generated method stub
-		return null;
+		Qna qna = dao.select(qnaNo);
+		String filename = qna.getQnaAattachment();  
+		dao.delete(qnaNo);
+		return filename;
 	}
 
 }

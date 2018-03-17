@@ -33,28 +33,51 @@ public class QnaDaoImpl implements QnaDao {
 	// 문의글 번호를 이용하여 글 하나 불러오기
 	@Override
 	public Qna select(String qnaNo) throws QnaException {
-		// TODO Auto-generated method stub
-		return null;
+		Qna qna = null;
+		try {
+			qna = session.selectOne(MAPPERS_NS + ".select-board", qnaNo);
+			
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			throw new QnaException(e.getMessage());
+		}
+		return qna;
 	}
 
 	// 전체 문의글 불러오기
 	@Override
 	public List<Qna> selectAll() throws QnaException {
-		// TODO Auto-generated method stub
-		return null;
+		List<Qna> list = null;
+		try {
+			list = session.selectList(MAPPERS_NS + ".select-all-qna" );
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			throw new QnaException(e.getMessage());
+		}
+		return list;
 	}
 	
 	// 문의글 수정하기
 	@Override
 	public void update(Qna qna) throws QnaException {
-		// TODO Auto-generated method stub
+		try {
+			session.update(MAPPERS_NS + ".update-qna", qna);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			throw new QnaException(e.getMessage());
+		}
 		
 	}
 
 	// 문의글 삭제하기
 	@Override
 	public void delete(String qnaNo) throws QnaException {
-		// TODO Auto-generated method stub
+		try {
+			session.delete(MAPPERS_NS + ".delete-qna", qnaNo);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			throw new QnaException(e.getMessage());
+		}
 		
 	}
 

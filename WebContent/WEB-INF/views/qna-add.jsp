@@ -11,14 +11,14 @@
 			<span>${ users.name }(${ users.id })</span>
 		</div>
 		<div>
-			<label>제목<input type="text" name="title"></label>
+			<label>제목<input type="text" name="qna_title"></label>
 		</div>
 		<div>
 			<label>내용</label>
-			<textarea name="content"></textarea>
+			<textarea name="qna_content"></textarea>
 		</div>
 		<div>
-			<label>첨부파일 <input type="file" name="qnaAttachment"></label>
+			<label>첨부파일 <input type="file" name="qna_attachment"></label>
 		</div>
 		<input type="submit" value="등록">
 		<input type="reset" value="입력한 내용 지우기">
