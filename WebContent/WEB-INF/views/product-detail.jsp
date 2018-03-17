@@ -17,5 +17,9 @@
 		<dt>제품설명</dt><dd>${ product.explaination }</dd>
 		<dt>제품사진</dt><dd>${ product.attachment }</dd>
 	</dl>
+	<a href="<c:url value='/product/product-modify.do?product_no=${ product.productNo }'/>">수정</a>
+	<a href="<c:url value='/product/product-remove.do?product_no=${ product.productNo }'/>">삭제</a><br>
+	<a href="<c:url value='/product/product-list.do'/>">제품 목록으로 이동</a>
+	
 </body>
 </html>

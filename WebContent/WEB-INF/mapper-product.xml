@@ -5,8 +5,8 @@
   
   <mapper namespace="com.koitt.hona.model.Product">
   	<insert id="insert-product" parameterType="Product">
-  		INSERT INTO product (product_no, product_type, product_name, EA, price, inventory, explaination, attachment)
-  		VALUES (#{productNo}, #{productType}, #{productName}, #{EA}, #{price}, #{inventory}, #{explaination}, #{attachment}) 
+  		INSERT INTO product (product_no, product_type, product_name, price, inventory, explaination, attachment)
+  		VALUES (#{productNo}, #{productType}, #{productName}, #{price}, #{inventory}, #{explaination}, #{attachment}) 
   	</insert>
   	
   	<resultMap type="Product" id="productResultMap">
@@ -27,4 +27,14 @@
   	<select id="select-all-product" resultMap="productResultMap">
   		SELECT * FROM product
   	</select>
+  	
+  	<update id="update-product" parameterType="Product">
+  		UPDATE product SET product_type = #{ productType }, product_name = #{ productName }, price = #{ price },
+		inventory = #{ inventory }, explaination = #{ explaination }, attachment = #{ attachment }	
+  		WHERE product_no = #{ productNo }
+  	</update>
+  	
+  	<delete id="delete-product" parameterType="String">
+  		DELETE FROM product WHERE product_no = #{ productNo }
+  	</delete>
   </mapper>
