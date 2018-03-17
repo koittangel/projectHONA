@@ -99,6 +99,8 @@ public class User implements Serializable{
 	}
 
 	// hashcode 자동완성
+
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -113,26 +115,21 @@ public class User implements Serializable{
 		return result;
 	}
 
-	// equals 자동완성
 	@Override
 	public boolean equals(Object obj) {
-		// 1. 주소 비교
 		if (this == obj) {
 			return true;
 		}
-		
-		// 2. 비교하는 클래스가 같은 타입인지 검사
 		if (!(obj instanceof User)) {
 			return false;
 		}
-		
-		// 3. userNo가 같다면 같은 회원으로 인식
 		User other = (User) obj;
 		if (this.userNo.equals(other.userNo)) {
 			return true;
 		}
 		
 		return false;
+		
 	}
 
 	// toString 자동완성 

@@ -39,9 +39,10 @@ public class QnaWebController {
 	// 문의글 작성 화면
 	@RequestMapping(value="/qna-add.do", method=RequestMethod.GET)
 	public String add(Model model) {
-		String id = userService.getPrincipal().getUsername();
-
+	
 		try {
+			String id = userService.getPrincipal().getUsername();
+			
 			User user = userService.detailById(id);
 			user.setPassword(null);
 			model.addAttribute("user", user);

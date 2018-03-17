@@ -6,8 +6,8 @@
 	xmlns:sec="http://www.springframework.org/schema/security"
 	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.2.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
-		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+ 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+ 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 
 	<!-- 스프링 애노테이션 적용 범위 -->
 	<context:component-scan base-package="com.koitt"></context:component-scan>
@@ -34,11 +34,10 @@
 
 	<!--  인증 처리를 위한 클래스 지정 -->
 	<sec:authentication-manager>
-		<sec:authentication-provider
-			user-service-ref="customUserDetailsService">
+		<sec:authentication-provider user-service-ref="customUserDetailsService">
 			<sec:password-encoder ref="bcryptEncoder" />
 		</sec:authentication-provider>
-	</sec:authentication-manager> 
+	</sec:authentication-manager>
 
 	<!-- jdbc.properties 파일 불러오기 -->
 	<context:property-placeholder location="/WEB-INF/jdbc.properties" />

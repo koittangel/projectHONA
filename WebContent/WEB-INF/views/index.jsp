@@ -6,7 +6,8 @@
 <head><title>홈페이지</title></head>
 <body>
 	<h1>H O N A</h1>
-	<a href="<c:url value='/product/product-list.do'/>">상품 목록으로 이동</a><br>
+	<a href="<c:url value='/product/product-list.do'/>">제품 목록으로 이동</a><br>
+	<a href="<c:url value='/product/product-add.do'/>">제품 등록</a><br>
 	<a href="<c:url value='/qna/qna-list.do'/>">문의글 목록</a><br>
 	<a href="<c:url value='/admin/users-list.do'/>">회원 목록으로 이동</a><br>
 	<a href="<c:url value='/join.do'/>">회원 가입하기</a>

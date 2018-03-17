@@ -30,7 +30,6 @@ public class CustomUserDetailsService implements UserDetailsService {
 		try {
 			User user = service.detailById(id);
 
-
 			if (user == null) {
 				throw new UsernameNotFoundException("해당 사용자를 찾지 못했습니다.");
 			}
