@@ -93,7 +93,18 @@ INSERT INTO user (id, password, user_name, birth, phone, address)
 INSERT INTO user (id, password, user_name, birth, phone, address)
 	VALUES ('hona3', '$2a$10$DFrlIB4d.kN5cbfIkYDHdO2AXeUV6xtbn1gMT6bTfPDMSJJw6bC.O', '유저2', STR_TO_DATE('1993-01-02', '%Y-%m-%d'), 01011112222, '서울시 금천구');
 
+	
+# 제품 입력
+INSERT INTO product (product_type, product_name, price, EA, inventory, explaination, attachment)
+	VALUES ('상의', '반팔티', 10000, 1, 1, '시원한 반팔티', NULL);
+	
+INSERT INTO product (product_type, product_name, price, EA, inventory, explaination, attachment)
+	VALUES ('하의', '반바지', 20000, 1, 1, '시원한 반바지', NULL);
+	
+INSERT INTO product (product_type, product_name, price, EA, inventory, explaination, attachment)
+	VALUES ('신발', '슬리퍼', 30000, 1, 1, '시원한 슬리퍼', NULL);
 
+	
 # 고객에게 권한 부여
 INSERT INTO user_authority VALUES (1, 10);
 INSERT INTO user_authority VALUES (2, 20);
