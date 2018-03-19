@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,18 +8,34 @@
 </head>
 <body>
 	<h1>제품 상세정보</h1>
-	<dl>
-		<dt>제품번호</dt><dd>${ product.productNo }</dd>
-		<dt>제품타입</dt><dd>${ product.productType }</dd>
-		<dt>제품이름</dt><dd>${ product.productName }</dd>
-		<dt>가격</dt><dd>${ product.price }</dd>
-		<dt>개수</dt><dd>${ product.EA }</dd>
-		<dt>재고</dt><dd>${ product.inventory }</dd>
-		<dt>제품설명</dt><dd>${ product.explaination }</dd>
-		<dt>제품사진</dt><dd>${ product.attachment }</dd>
-	</dl>
-	<a href="<c:url value='/product/product-modify.do?product_no=${ product.productNo }'/>">수정</a>
-	<a href="<c:url value='/product/product-remove.do?product_no=${ product.productNo }'/>">삭제</a><br>
+	<table border="1">
+		<tr>
+			<td>
+				<c:if test="${ !empty imgPath }">
+					<img src="${ imgPath }" width="200" height="200">
+				</c:if>
+			</td>
+			<td>
+				<table border="1" style="height: 300px; width: 1000px;">
+					<tr align="center">
+						<td>제품이름</td>
+						<td>${ product.productName }</td>
+					</tr>
+					<tr align="center">
+						<td>가격</td>
+						<td>${ product.price }</td>
+					</tr>
+					<tr align="center">
+						<td>제품설명</td>
+						<td>${ product.explaination }</td>
+					</tr>
+				</table>
+			</td>
+	</table>
+	<sec:authorize access="hasRole('ADMIN')">
+		<a href="<c:url value='/product/product-modify.do?product_no=${ product.productNo }'/>">수정</a>
+		<a href="<c:url value='/product/product-remove.do?product_no=${ product.productNo }'/>">삭제</a><br>
+	</sec:authorize>
 	<a href="<c:url value='/product/product-list.do'/>">제품 목록으로 이동</a>
 	
 </body>

@@ -38,7 +38,7 @@ public class ProductServiceImpl implements ProductService{
 	public String modify(Product product) throws ProductException {
 		Product item = dao.select(product.getProductNo().toString());
 		String filename = item.getAttachment();
-		dao.updates(product);
+		dao.update(product);
 		
 		return filename;
 	}

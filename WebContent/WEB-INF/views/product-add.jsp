@@ -25,10 +25,13 @@
 			<textarea name="explaination"></textarea>
 		</div>
 		<div>
-			<label>제품 사진<input type="file" name="attachment"></label>
+			<label>제품 사진</label>
+			<input multiple="multiple" type="file" name="attachment">
+
 		</div>
-		<input type="submit" value="제품 등록">
-		<a href="<c:url value='/index.do'/>">메인 화면</a>
+		<input type="submit" value="제품 등록"><br>
+		<a href="<c:url value='/index.do'/>">MAIN</a>
+		<input type="hidden" name="${ _csrf.parameterName }" value="${ _csrf.token }">
 	</form>
 </body>
 </html>

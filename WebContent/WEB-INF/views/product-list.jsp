@@ -7,31 +7,26 @@
 </head>
 <body>
 	<h1>상품 목록</h1>
-	<table>
-		<thead>
+	<table border="1">
+		<tr>
+			<th>제품번호</th>
+			<th>제품이름</th>
+			<th>제품가격</th>
+			<th>제품이미지</th>
+		</tr>
+		<c:forEach items="${ list }" var="product">
 			<tr>
-				<th>제품번호</th>
-				<th>제품종류</th>
-				<th>제품이름</th>
-				<th>제품가격</th>
-				<th>제품재고</th>
-				<th>제품설명</th>
-				<th>제품사진</th>
+				<td>${ product.productNo }</td>
+				<td><a
+					href="<c:url value='/product/product-detail.do?product_no=${ product.productNo }'/>">${ product.productName }</a></td>
+				<td>${ product.price }</td>
+				<td>
+					<c:if test="${ !empty imgPaths }">
+					<img src="${ imgPaths }" width="200" height="200">
+				</c:if>
+				</td>
 			</tr>
-		</thead>
-		<tbody>
-			<c:forEach items="${ list }" var="product">
-				<tr>
-					<td>${ product.productNo }</td>
-					<td>${ product.productType }</td>
-					<td><a href="<c:url value='/product/product-detail.do?product_no=${ product.productNo }'/>">${ product.productName }</a></td>
-					<td>${ product.price }</td>
-					<td>${ product.inventory }</td>
-					<td>${ product.explaination }</td>
-					<td>${ product.attachment }</td>
-				</tr>
-			</c:forEach>
-		</tbody>
+		</c:forEach>
 	</table>
 </body>
 </html>

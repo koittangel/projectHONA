@@ -13,7 +13,7 @@ public interface ProductDao {
 	
 	public void insert(Product product) throws ProductException;
 
-	public void updates(Product product) throws ProductException;
+	public void update(Product product) throws ProductException;
 	
 	public void delete(String productNo) throws ProductException;
 }

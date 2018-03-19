@@ -61,7 +61,7 @@ public class ProductDaoImpl implements ProductDao{
 	}
 
 	@Override
-	public void updates(Product product) throws ProductException {
+	public void update(Product product) throws ProductException {
 		try {
 			session.update(MAPPER_NS + ".update-product", product);
 			

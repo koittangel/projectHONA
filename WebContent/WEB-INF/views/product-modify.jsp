@@ -10,10 +10,10 @@
 	<form action="<c:url value='/product/product-modify.do'/>" method="post" enctype="multipart/form-data">
 		<div>제품번호: ${ product.productNo }</div>
 		<div>
-			<label>제품 타입<input type="text" name="product_type" value="${ product.productType }"></label>
+			<label>제품 타입<input type="text" name="productType" value="${ product.productType }"></label>
 		</div>
 		<div>
-			<label>제품 이름<input type="text" name="product_name" value="${ product.productType }"></label>
+			<label>제품 이름<input type="text" name="productName" value="${ product.productType }"></label>
 		</div>
 		<div>
 			<label>가격<input type="number" name="price" value="${ product.price }"></label>
@@ -28,9 +28,10 @@
 		<div>
 			<label>제품 사진<input type="file" name="attachment"></label>
 		</div>
-		<input type="hidden" name="product_no" value="${ product.productNo }">
+		<input type="hidden" name="productNo" value="${ product.productNo }">
 		<input type="submit" value="제품 수정"><br>
 		<a href="<c:url value='/product/product-list.do'/>">product list</a>
+		<input type="hidden" name="${ _csrf.parameterName }" value="${ _csrf.token }">
 	</form>
 </body>
 </html>

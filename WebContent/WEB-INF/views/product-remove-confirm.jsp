@@ -8,8 +8,9 @@
 	<p>정말로 ${ productNo }번 제품을 삭제하시겠습니까?</p>
 	
 	<form action="<c:url value='/product/product-remove.do'/>" method="post">
-		<input type="hidden" name="product_no" value="${ productNo }">
+		<input type="hidden" name="productNo" value="${ productNo }">
 		<input type="submit" value="삭제하기">
+		<input type="hidden" name="${ _csrf.parameterName }" value="${ _csrf.token }">
 	</form>
 	<a href="<c:url value='/product/product-list.do'/>">제품 목록으로 이동</a>
 </body>
