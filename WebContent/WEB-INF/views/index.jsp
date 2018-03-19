@@ -14,7 +14,6 @@
 	</sec:authorize>
 	
 	<sec:authorize access="hasRole('ADMIN') or hasRole('USER')">
-		<h3>회원 페이지 입니다.</h3>
 		<a href="<c:url value='/users-modify.do'/>">회원정보변경</a><br>
 		<a href="<c:url value='/logout.do'/>">로그아웃</a><br>
 	</sec:authorize>

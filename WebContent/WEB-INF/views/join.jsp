@@ -15,6 +15,7 @@
 		<label>연락처 : <input type="number" name="phone"></label><br>
 		<label>주소 : <input type="text" name="address"></label><br>
 		<input type="submit" value="회원가입"><br>
+		<input type="hidden" name="${ _csrf.parameterName }" value="${ _csrf.token }">
 	</form>
 
 </body>
