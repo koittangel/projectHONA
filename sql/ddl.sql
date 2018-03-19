@@ -93,8 +93,10 @@ INSERT INTO user (id, password, user_name, birth, phone, address)
 INSERT INTO user (id, password, user_name, birth, phone, address)
 	VALUES ('hona3', '$2a$10$DFrlIB4d.kN5cbfIkYDHdO2AXeUV6xtbn1gMT6bTfPDMSJJw6bC.O', '유저2', STR_TO_DATE('1993-01-02', '%Y-%m-%d'), 01011112222, '서울시 금천구');
 
-	
 # 제품 입력
+INSERT INTO product (product_type, product_name, EA, price, inventory, explaination, attachment)
+	VALUES ('TOP', '플란넬 체크 셔츠', 1, 39900, 30, '플란넬 원단으로 제작되어 보온성이 뛰어나며 레이어드용으로, 아우터로, 다양하게 활용하기 좋은 아이템입니다 :)', NULL);
+	
 INSERT INTO product (product_type, product_name, price, EA, inventory, explaination, attachment)
 	VALUES ('상의', '반팔티', 10000, 1, 1, '시원한 반팔티', NULL);
 	
@@ -103,6 +105,16 @@ INSERT INTO product (product_type, product_name, price, EA, inventory, explainat
 	
 INSERT INTO product (product_type, product_name, price, EA, inventory, explaination, attachment)
 	VALUES ('신발', '슬리퍼', 30000, 1, 1, '시원한 슬리퍼', NULL);
+
+# 문의글 등록
+INSERT INTO qna (product_no, qna_title, qna_content, user_no, reg_date, qna_attachment)
+	VALUES (1, '[배송문의]', '3월 10일에 주문했는데 아직도 배송준비중이네요..언제 보내실건가요?', 2,  CURDATE(), NULL);
+	
+# 공지글 등록	
+INSERT INTO notice (notice_title, notice_content, reg_date)
+	VALUES ('[주문전 먼저 읽어주세요] 배송관련', 'HONA는 재고판매를 하지 않고 있습니다
+상품들은 배송되는데 2~5일 정도 소요되며 일부상품의 경우 주문주신후 거래처나 공장사정에 의해 입고지연되거나 품절될수있습니다.
+이점 너무 죄송하고 너그럽게 양해부탁드려요', CURDATE());
 
 	
 # 고객에게 권한 부여
