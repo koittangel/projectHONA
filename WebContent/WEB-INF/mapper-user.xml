@@ -19,8 +19,12 @@
   		</collection>
   	</resultMap>
   	
-  	<insert id="insert-user" parameterType="User" useGeneratedKeys="true" keyProperty="user_no">
-  		INSERT INTO users (id, password, user_name, birth, phone, address)
+  	<select id="select-last-insert-id" resultType="int">
+  		SELECT LAST_INSERT_ID()
+  	</select>
+  	
+  	<insert id="insert-user" parameterType="User" useGeneratedKeys="true" keyProperty="userNo">
+  		INSERT INTO user (id, password, user_name, birth, phone, address)
   		VALUES (#{id}, #{password}, #{userName}, #{birth}, #{phone}, #{address})
   	</insert>
   
@@ -46,6 +50,8 @@
 				WHERE user_authority.authority_id = authority.id) ua
 		WHERE u.user_no = ua.user_no AND u.id = #{id}
   	</select>
+  	
+
   	
   	
   </mapper>

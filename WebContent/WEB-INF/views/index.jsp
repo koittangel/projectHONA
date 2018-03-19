@@ -5,6 +5,8 @@
 <html>
 <head><title>홈페이지</title></head>
 <body>
+
+	<img src="./img/hona.png" alt="로고"/>
 	<h1>H O N A</h1>
 	
 	<sec:authorize access="hasRole('ADMIN')">
