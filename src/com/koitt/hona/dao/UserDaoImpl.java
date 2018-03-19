@@ -65,7 +65,7 @@ public class UserDaoImpl implements UserDao {
 		User user = null;
 		
 		try {
-		user = session.selectOne(MAPPER_NS + "select-users-by-id", id);
+		user = session.selectOne(MAPPER_NS + ".select-users-by-id", id);
 		} catch (Exception e) {
 			throw new UserException(e.getMessage());
 		}
