@@ -36,7 +36,7 @@
 		FROM user u, (SELECT user_authority.user_no, authority.id, authority.name 
 				FROM user_authority, authority
 				WHERE user_authority.authority_id = authority.id) ua
-		WHERE u.user_no = ua.user_no;
+		WHERE u.user_no = ua.user_no
   	</select>
   	
   	<select id="select-users-by-id" parameterType="String" resultMap="UserResultMap">
@@ -44,7 +44,7 @@
 		FROM user u, (SELECT user_authority.user_no, authority.id, authority.name 
 				FROM user_authority, authority
 				WHERE user_authority.authority_id = authority.id) ua
-		WHERE u.user_no = ua.user_no AND u.user_no = #{userNo};
+		WHERE u.user_no = ua.user_no AND u.id = #{id}
   	</select>
   	
   	
