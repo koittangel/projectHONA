@@ -108,7 +108,14 @@ INSERT INTO product (product_type, product_name, price, EA, inventory, explainat
 
 # 문의글 등록
 INSERT INTO qna (product_no, qna_title, qna_content, user_no, reg_date, qna_attachment)
-	VALUES (1, '[배송문의]', '3월 10일에 주문했는데 아직도 배송준비중이네요..언제 보내실건가요?', 2,  CURDATE(), NULL);
+	VALUES (1, '배송문의', '3월 10일에 주문했는데 아직도 배송준비중이네요..언제 보내실건가요?', 2,  CURDATE(), NULL);
+	
+INSERT INTO qna (product_no, qna_title, qna_content, user_no, reg_date, qna_attachment)
+	VALUES (NULL, '일반문의', '회원가입했는데 여긴 혜택이 하나도 없나요??', 3,  CURDATE(), NULL);
+	
+INSERT INTO qna (product_no, qna_title, qna_content, user_no, reg_date, qna_attachment)
+	VALUES (2, '상품문의', '상품 정보에 사이즈가 하나도 없네요?? 뭐죠?', 2,  CURDATE(), NULL);
+	
 	
 # 공지글 등록	
 INSERT INTO notice (notice_title, notice_content, reg_date)
@@ -149,5 +156,14 @@ FROM user u, (SELECT user_authority.user_no, authority.id, authority.name
 				FROM user_authority, authority
 				WHERE user_authority.authority_id = authority.id) ua
 WHERE u.user_no = ua.user_no AND u.id = 'hona1';
+
+
+# qna테이블과 product 테이블을 JOIN한 후, user테이블과 JOIN하여 글 하나 조회 SQL문(상품이 없는 경우도 불러오기)
+SELECT qp.qna_no, qp.product_no, qp.qna_title, qp.qna_content, u.id, qp.reg_date, qp.qna_attachment
+FROM user u,
+(SELECT qna.qna_no, qna.product_no, qna.qna_title, qna.qna_content, qna.user_no, qna.reg_date, qna.qna_attachment
+FROM qna LEFT JOIN product
+ON qna.product_no = product.product_no) qp 
+WHERE qp.user_no = u.user_no AND u.user_no = 3;
 
 show tables;
