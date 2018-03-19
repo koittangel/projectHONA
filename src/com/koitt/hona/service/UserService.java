@@ -33,7 +33,7 @@ public interface UserService {
 	 *  Principal 객체 가져오기
 	 *  Principal: 시스템을 사용하려고 하는 사용자 (로그인한 사용자)
 	 */
-	public UserDetails getPrincipal() throws UserException;
+	public UserDetails getPrincipal();
 	
 	// 로그아웃
 	public void logout(HttpServletRequest req, HttpServletResponse resp) throws UserException;

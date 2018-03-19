@@ -21,7 +21,7 @@
 				<tr>
 					<td>${ qna.qnaNo }</td>
 					<td><a href="<c:url value='/qna/qna-detail.do?qnaNo=${ qna.qnaNo }'/>">${ qna.qnaTitle }</a></td>
-					<td>${ qna.user.name }(${ qna.user.id })</td>
+					<td>${ qna.user.userName }(${ qna.user.id })</td>
 					<td>${ qna.regDate }</td>
 				</tr>
 			</c:forEach>

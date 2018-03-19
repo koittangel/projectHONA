@@ -104,7 +104,7 @@ public class QnaWebController {
 	@RequestMapping(value="/qna-detail.do", method=RequestMethod.GET)
 	public String detail(Model model, 
 			HttpServletRequest request, 
-			@RequestParam(value="qna_no", required=false) String qnaNo) {
+			@RequestParam(value="qnaNo", required=false) String qnaNo) {
 		
 		Qna qna = null;
 		String filename = null;
@@ -144,7 +144,7 @@ public class QnaWebController {
 	// 문의글 삭제 확인 화면
 	@RequestMapping(value="/qna-remove.do", method=RequestMethod.GET)
 	public String remove(Model model,
-			@RequestParam(value="qna_no", required=true) String qnaNo) {
+			@RequestParam(value="qnaNo", required=true) String qnaNo) {
 		
 		model.addAttribute("qnaNo", qnaNo);
 		
@@ -168,7 +168,7 @@ public class QnaWebController {
 	// 문의글 수정하기 화면
 	@RequestMapping(value="/qna-modify.do", method=RequestMethod.GET)
 	public String modify(Model model,
-			@RequestParam(value="qna_no", required=true) String qnaNo) {
+			@RequestParam(value="qnaNo", required=true) String qnaNo) {
 		Qna qna = null;
 		
 		try {
