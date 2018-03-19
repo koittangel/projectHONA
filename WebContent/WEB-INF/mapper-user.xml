@@ -14,7 +14,7 @@
   		<result property="phone" column="phone"/>
   		<result property="address" column="address"/>
   		<collection property="authorities" ofType="Authority">
-  			<id property="id" column="id"/>
+  			<id property="id" column="aid"/>
   			<result property="name" column="aname"/>
   		</collection>
   	</resultMap>
@@ -31,8 +31,8 @@
   		</foreach>
   	</insert>
   	
-  	<select id="select-user" parameterType="int" resultMap="UserResultMap">
-  		SELECT u.user_no, u.id, u.password, u.user_name, ua.id, ua.name as "aname"
+  	<select id="select-user" parameterType="String" resultMap="UserResultMap">
+  		SELECT u.user_no, u.id, u.password, u.user_name, ua.id as "aid", ua.name as "aname"
 		FROM user u, (SELECT user_authority.user_no, authority.id, authority.name 
 				FROM user_authority, authority
 				WHERE user_authority.authority_id = authority.id) ua
@@ -40,7 +40,7 @@
   	</select>
   	
   	<select id="select-users-by-id" parameterType="String" resultMap="UserResultMap">
-  		SELECT u.user_no, u.id, u.password, u.user_name, ua.id, ua.name as "aname"
+  		SELECT u.user_no, u.id, u.password, u.user_name, ua.id as "aid", ua.name as "aname"
 		FROM user u, (SELECT user_authority.user_no, authority.id, authority.name 
 				FROM user_authority, authority
 				WHERE user_authority.authority_id = authority.id) ua

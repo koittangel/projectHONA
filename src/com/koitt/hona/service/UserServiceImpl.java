@@ -113,9 +113,11 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public boolean isPasswordMatched(String oldPassword) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean isPasswordMatched(String oldPassword) throws UserException {
+		String id = this.getPrincipal().getUsername();
+		User user = userDao.selectById(id);
+		
+		return passwordEncoder.matches(oldPassword, user.getPassword());
 	}
 	
 
