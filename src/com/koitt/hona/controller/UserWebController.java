@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.expression.ParseException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,12 +25,10 @@ public class UserWebController {
 	
 	@Autowired
 	private UserService userService;
-	
-	@Autowired
-	private FileService fileService;
+
 	
 	// 사용자 목록
-	@RequestMapping(value="/admin/users-list.do", method=RequestMethod.GET)
+	@RequestMapping(value="/user-list.do", method=RequestMethod.GET)
 	public String list(Model model, HttpServletRequest req) throws UserException {
 		List<User> list = null;
 		
@@ -42,9 +39,8 @@ public class UserWebController {
 		}
 		
 		model.addAttribute("list", list);
-		model.addAttribute("uploadPath", fileService.getUploadPath(req));
 		
-		return "admin/users-list";
+		return "user-list";
 	}
 	
 	// 사용자 추가 (가입하기 화면)
@@ -114,6 +110,22 @@ public class UserWebController {
 		model.addAttribute("id", userService.getPrincipal().getUsername());
 		
 		return "access-denied";
+	}
+	
+	@RequestMapping(value="/user-modify.do", method=RequestMethod.GET)
+	public String modify(HttpServletRequest request) {
+		User user= null;
+		
+		try {
+			String id = userService.getPrincipal().getUsername();
+			user = userService.detailById(id);
+		} catch (UserException e) {
+			request.setAttribute("error", "server");
+		}
+		
+		request.setAttribute("user", user);
+		
+		return "user-modify";
 	}
 	
 }

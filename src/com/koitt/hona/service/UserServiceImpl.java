@@ -45,7 +45,6 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public User detail(Integer userNo) throws UserException {
 		return userDao.select(userNo);
-
 	}
 
 	// 유저추가
@@ -79,11 +78,13 @@ public class UserServiceImpl implements UserService{
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	
 	@Override
-	public String modify(User users) {
-		// TODO Auto-generated method stub
-		return null;
+	public void modify(User user) throws UserException {
+		user.setPassword(passwordEncoder.encode(user.getPassword()));
+		userDao.update(user);
+		
+		
 	}
 
 	@Override

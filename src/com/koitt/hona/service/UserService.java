@@ -21,7 +21,7 @@ public interface UserService {
 	
 	public String remove(Integer userNo, String password) throws UserException;
 	
-	public String modify(User users) throws UserException;
+	public void modify(User user) throws UserException;
 	
 	// 유저 Id로 사용자의 모든 정보 가져오기
 	public User detailById(String id) throws UserException;

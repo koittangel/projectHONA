@@ -5,6 +5,10 @@
   
   <mapper namespace="com.koitt.hona.model.User">
   
+  	<select id="select-all-user" resultType="User">
+  		SELECT * FROM user
+  	</select>
+  
     <resultMap type="User" id="UserResultMap">
   		<id property="userNo" column="user_no" />
   		<result property="id" column="id"/>
@@ -18,6 +22,8 @@
   			<result property="name" column="aname"/>
   		</collection>
   	</resultMap>
+  	
+
   	
   	<select id="select-last-insert-id" resultType="int">
   		SELECT LAST_INSERT_ID()
@@ -51,6 +57,12 @@
 		WHERE u.user_no = ua.user_no AND u.id = #{id}
   	</select>
   	
+
+  	
+  	<update id="update-user" parameterType="User"> 
+  		UPDATE user SET password = #{password}, phone = #{phone}, 
+  			address = #{address} WHERE user_no = #{userNo};
+  	</update>
 
   	
   	
