@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.koitt.hona.model.Qna">
+  	<insert id="insert-qna" parameterType="Qna">
+  		INSERT INTO qna (product_no, qna_title, qna_content, user_no, reg_date, qna_attachment)
+  		VALUES (#{productNo}, #{qnaTitle}, #{qnaContent}, #{userNo}, CURDATE(), #{qnaAttachment}) 
+  	</insert>
+  	
+  	<resultMap type="Qna" id="QnaResultMap">
+  		<id property="qnaNo" column="qna_no"/>
+  		<result property="productNo" column="product_no"/>
+  		<result property="qnaTitle" column="qna_title"/>
+  		<result property="qnaContent" column="qna_content"/>
+  		<result property="userNo" column="user_no"/>
+  		<result property="regDate" column="reg_date"/>
+  		<result property="qnaAttachment" column="qna_attachment"/>
+  		<result property="user.userName" column="user_name"  />
+  		<result property="user.id" column="id" />
+  		<result property="product.productNo" column="product_no" />
+  		
+  	</resultMap>
+  	
+  	<select id="select-qna" parameterType="String" resultMap="QnaResultMap">
+  		SELECT qp.qna_no, qp.product_no, qp.qna_title, qp.qna_content, u.user_name, u.id, qp.reg_date, qp.qna_attachment
+		FROM user u,
+			(SELECT qna.qna_no, qna.product_no, qna.qna_title, qna.qna_content, qna.user_no, qna.reg_date, qna.qna_attachment
+			FROM qna LEFT JOIN product
+			ON qna.product_no = product.product_no) qp 
+		WHERE qp.user_no = u.user_no AND qp.qna_no = #{ qnaNo }
+   	</select>
+  	
+  	<select id="select-all-qna" resultMap="QnaResultMap">
+  		SELECT qp.qna_no, qp.product_no, qp.qna_title, qp.qna_content, u.user_name, u.user_no, u.id, qp.reg_date, qp.qna_attachment
+		FROM user u,
+			(SELECT qna.qna_no, qna.product_no, qna.qna_title, qna.qna_content, qna.user_no, qna.reg_date, qna.qna_attachment
+			FROM qna LEFT JOIN product
+			ON qna.product_no = product.product_no) qp 
+		WHERE qp.user_no = u.user_no ORDER BY qp.qna_no DESC
+  	</select>
+  	
+  	<update id="update-qna" parameterType="qna">
+  		UPDATE qna SET qna_title = #{qnaTitle}, qna_content = #{qnaContent}, qna_attachment = #{ qnaAttachment }
+  		WHERE qna_no = #{qnaNo}  
+  	</update>
+  	
+  	<delete id="delete-qna" parameterType="String">
+  		DELETE FROM qna WHERE qna_no = #{ qnaNo }
+  	</delete>
+  </mapper>

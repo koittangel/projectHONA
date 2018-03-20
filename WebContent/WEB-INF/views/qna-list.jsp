@@ -28,6 +28,6 @@
 			</c:forEach>
 		</tbody>
 	</table>
-
+	<a href="<c:url value='/index.do'/>">메인 화면</a>
 </body>
 </html>
