@@ -163,6 +163,15 @@ FROM user u,
 (SELECT qna.qna_no, qna.product_no, qna.qna_title, qna.qna_content, qna.user_no, qna.reg_date, qna.qna_attachment
 FROM qna LEFT JOIN product
 ON qna.product_no = product.product_no) qp 
-WHERE qp.user_no = u.user_no AND u.user_no = 3;
+WHERE qp.user_no = u.user_no AND qp.qna_no = 3;
+
+# 모든 문의글 조회
+SELECT qp.qna_no, qp.product_no, qp.qna_title, qp.qna_content, u.user_no, u.id, qp.reg_date, qp.qna_attachment
+FROM user u,
+(SELECT qna.qna_no, qna.product_no, qna.qna_title, qna.qna_content, qna.user_no, qna.reg_date, qna.qna_attachment
+FROM qna LEFT JOIN product
+ON qna.product_no = product.product_no) qp 
+WHERE qp.user_no = u.user_no ORDER BY qp.qna_no DESC;
+
 
 show tables;
