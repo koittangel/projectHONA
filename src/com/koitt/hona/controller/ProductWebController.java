@@ -69,7 +69,6 @@ public class ProductWebController {
 		}
 
 		model.addAttribute("list", list);
-		model.addAttribute("product", product);
 		model.addAttribute("imgPaths", imgPaths);
 
 		return "product-list";

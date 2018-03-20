@@ -14,16 +14,14 @@
 			<th>제품가격</th>
 			<th>제품이미지</th>
 		</tr>
-		<c:forEach items="${ list }" var="product">
+		<c:forEach var="item" items="${ list }" varStatus="status">
 			<tr>
-				<td>${ product.productNo }</td>
+				<td>${ item.productNo }</td>
 				<td><a
-					href="<c:url value='/product/product-detail.do?product_no=${ product.productNo }'/>">${ product.productName }</a></td>
-				<td>${ product.price }</td>
+					href="<c:url value='/product/product-detail.do?product_no=${ item.productNo }'/>">${ item.productName }</a></td>
+				<td>${ item.price }</td>
 				<td>
-					<c:if test="${ !empty imgPaths }">
-					<img src="${ imgPaths }" width="200" height="200">
-				</c:if>
+					<img src="${ imgPaths[status.index] }" width="200" height="200">
 				</td>
 			</tr>
 		</c:forEach>
