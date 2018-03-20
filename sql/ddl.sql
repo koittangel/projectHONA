@@ -48,6 +48,7 @@ CREATE TABLE payment (
 	payment_no		INT				NOT NULL	AUTO_INCREMENT PRIMARY KEY,
 	user_no			INT				NOT NULL,
 	product_no		INT 			NOT NULL,
+	ea				INT				NOT NULL,
 	total_price		INT				NOT NULL,
 	FOREIGN KEY (user_no) REFERENCES user(user_no),
 	FOREIGN KEY (product_no) REFERENCES product(product_no)
@@ -115,27 +116,16 @@ INSERT INTO qna (product_no, qna_title, qna_content, user_no, reg_date, qna_atta
 INSERT INTO qna (product_no, qna_title, qna_content, user_no, reg_date, qna_attachment)
 	VALUES (2, '상품문의', '상품 정보에 사이즈가 하나도 없네요?? 뭐죠?', 2,  CURDATE(), NULL);
 	
-	
 # 공지글 등록	
 INSERT INTO notice (notice_title, notice_content, reg_date)
 	VALUES ('[주문전 먼저 읽어주세요] 배송관련', 'HONA는 재고판매를 하지 않고 있습니다
 상품들은 배송되는데 2~5일 정도 소요되며 일부상품의 경우 주문주신후 거래처나 공장사정에 의해 입고지연되거나 품절될수있습니다.
 이점 너무 죄송하고 너그럽게 양해부탁드려요', CURDATE());
-
 	
 # 고객에게 권한 부여
 INSERT INTO user_authority VALUES (1, 10);
 INSERT INTO user_authority VALUES (2, 20);
 INSERT INTO user_authority VALUES (3, 20);
-
-
-SELECT * FROM user;
-SELECT * FROM authority;
-SELECT * FROM user_authority;
-SELECT * FROM product;
-SELECT * FROM payment;
-SELECT * FROM qna;
-SELECT * FROM notice;
 
 # 유저번호와 권한 id, 권한 name이 보이는 테이블
 SELECT user_authority.user_no, authority.id, authority.name 
@@ -175,6 +165,3 @@ WHERE qp.user_no = u.user_no ORDER BY qp.qna_no DESC;
 
 # 회원 정보 변경 테스트
 UPDATE user SET password = 1234, phone = 01012345678, address = '남양주' WHERE user_no = 3;
-
-
-show tables;
