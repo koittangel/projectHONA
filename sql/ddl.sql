@@ -173,5 +173,8 @@ FROM qna LEFT JOIN product
 ON qna.product_no = product.product_no) qp 
 WHERE qp.user_no = u.user_no ORDER BY qp.qna_no DESC;
 
+# 회원 정보 변경 테스트
+UPDATE user SET password = 1234, phone = 01012345678, address = '남양주' WHERE user_no = 3;
+
 
 show tables;
