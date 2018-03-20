@@ -6,8 +6,7 @@
 <head><title>홈페이지</title></head>
 <body>
 
-	<img src="./img/hona.png "alt="로고"  />
-	<h1>H O N A</h1>
+	<img src="<c:url value='/img/hona.png'/>" alt="로고" />
 	
 	<sec:authorize access="hasRole('ADMIN')">
 		<h3>관리자 페이지 입니다.</h3>
