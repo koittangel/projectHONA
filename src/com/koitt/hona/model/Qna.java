@@ -12,12 +12,14 @@ public class Qna implements Serializable {
 	private String qnaContent;
 	private Integer userNo;
 	private Date regDate;
-	private String qnaAattachment;
+	private String qnaAttachment;
+	private User user;
+	private Product product;
 	
 	public Qna() {}
 
 	public Qna(Integer qnaNo, Integer productNo, String qnaTitle, String qnaContent, Integer userNo, Date regDate,
-			String qnaAattachment) {
+			String qnaAttachment) {
 		super();
 		this.qnaNo = qnaNo;
 		this.productNo = productNo;
@@ -25,7 +27,7 @@ public class Qna implements Serializable {
 		this.qnaContent = qnaContent;
 		this.userNo = userNo;
 		this.regDate = regDate;
-		this.qnaAattachment = qnaAattachment;
+		this.qnaAttachment = qnaAttachment;
 	}
 	
 	public Integer getQnaNo() {
@@ -76,12 +78,28 @@ public class Qna implements Serializable {
 		this.regDate = regDate;
 	}
 
-	public String getQnaAattachment() {
-		return qnaAattachment;
+	public String getqnaAttachment() {
+		return qnaAttachment;
 	}
 
-	public void setQnaAattachment(String qnaAattachment) {
-		this.qnaAattachment = qnaAattachment;
+	public void setqnaAttachment(String qnaAttachment) {
+		this.qnaAttachment = qnaAttachment;
+	}
+	
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+	
+	public Product getProduct() {
+		return product;
+	}
+
+	public void setProduct(Product product) {
+		this.product = product;
 	}
 
 	@Override
@@ -89,12 +107,14 @@ public class Qna implements Serializable {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((productNo == null) ? 0 : productNo.hashCode());
-		result = prime * result + ((qnaAattachment == null) ? 0 : qnaAattachment.hashCode());
+		result = prime * result + ((qnaAttachment == null) ? 0 : qnaAttachment.hashCode());
 		result = prime * result + ((qnaContent == null) ? 0 : qnaContent.hashCode());
 		result = prime * result + ((qnaNo == null) ? 0 : qnaNo.hashCode());
 		result = prime * result + ((qnaTitle == null) ? 0 : qnaTitle.hashCode());
 		result = prime * result + ((regDate == null) ? 0 : regDate.hashCode());
 		result = prime * result + ((userNo == null) ? 0 : userNo.hashCode());
+		result = prime * result + ((user == null) ? 0 : user.hashCode());
+		result = prime * result + ((product == null) ? 0 : product.hashCode());
 		return result;
 	}
 
@@ -133,8 +153,12 @@ public class Qna implements Serializable {
 		builder.append(userNo);
 		builder.append(", regDate=");
 		builder.append(regDate);
-		builder.append(", qnaAattachment=");
-		builder.append(qnaAattachment);
+		builder.append(", qnaAttachment=");
+		builder.append(qnaAttachment);
+		builder.append(", user=");
+		builder.append(user);
+		builder.append(", product=");
+		builder.append(product);
 		builder.append("]");
 		return builder.toString();
 	}

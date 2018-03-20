@@ -9,7 +9,7 @@
 	<dl>
 		<dt>번호</dt><dd>${ qna.qnaNo }</dd>
 		<dt>상품</dt><dd>${ qna.product.productNo }</dd>
-		<dt>작성자</dt><dd>${ qna.user.name }(${ qna.user.userNo })</dd>
+		<dt>작성자</dt><dd>${ qna.user.userName }(${ qna.user.id })</dd>
 		<dt>작성일</dt><dd>${ qna.regDate }</dd>
 		<dt>제목</dt><dd>${ qna.qnaTitle }</dd>
 		<dt>내용</dt><dd>${ qna.qnaContent }</dd>
@@ -22,7 +22,7 @@
 		</c:if>
 	</dl>
 	<a href="<c:url value='/qna/qna-list.do'/>">문의게시판으로 이동</a>
-	<a href="<c:url value='/qna/qna-modify.do?qnaNo=${ qna.qnaNo }'/>">수정</a>
-	<a href="<c:url value='/qna/qna-remove.do?qnaNo=${ qna.qnaNo }'/>">삭제</a>
+	<a href="<c:url value='/qna/qna-modify.do?qna_no=${ qna.qnaNo }'/>">수정</a>
+	<a href="<c:url value='/qna/qna-remove.do?qna_no=${ qna.qnaNo }'/>">삭제</a>
 </body>
 </html>

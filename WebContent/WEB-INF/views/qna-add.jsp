@@ -18,11 +18,12 @@
 			<textarea name="qnaContent"></textarea>
 		</div>
 		<div>
-			<label>첨부파일 <input type="file" name="qnaAttachment"></label>
+			<label>첨부파일 <input multiple="multiple" type="file" name="qnaAttachment"></label>
 		</div>
 		<input type="submit" value="등록">
 		<input type="reset" value="입력한 내용 지우기">
 		<a href="<c:url value='/qna/qna-list.do'/>">문의게시판으로 이동</a>
+		<input type="hidden" name="userNo" value="${ user.userNo }">
 		<input type="hidden" name="${ _csrf.parameterName }" value="${ _csrf.token }">
 	</form>
 </body>

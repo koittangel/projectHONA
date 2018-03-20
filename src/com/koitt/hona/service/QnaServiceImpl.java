@@ -38,7 +38,7 @@ public class QnaServiceImpl implements QnaService {
 	@Override
 	public String modify(Qna qna) throws QnaException {
 		Qna item = dao.select(qna.getQnaNo().toString());
-		String filename = item.getQnaAattachment();
+		String filename = item.getqnaAttachment();
 		dao.update(qna);
 		
 		return filename;
@@ -48,7 +48,7 @@ public class QnaServiceImpl implements QnaService {
 	@Override
 	public String remove(String qnaNo) throws QnaException {
 		Qna qna = dao.select(qnaNo);
-		String filename = qna.getQnaAattachment();  
+		String filename = qna.getqnaAttachment();
 		dao.delete(qnaNo);
 		return filename;
 	}

@@ -13,14 +13,15 @@
 				<th>상품</th>
 				<th>제목</th>
 				<th>작성자</th>
-				<th></th>
+				<th>작성일</th>
 			</tr>
 		</thead>
 		<tbody>
 			<c:forEach items="${ list }" var="qna">
 				<tr>
 					<td>${ qna.qnaNo }</td>
-					<td><a href="<c:url value='/qna/qna-detail.do?qnaNo=${ qna.qnaNo }'/>">${ qna.qnaTitle }</a></td>
+					<td>${ qna.productNo }</td>
+					<td><a href="<c:url value='/qna/qna-detail.do?qna_no=${ qna.qnaNo }'/>">${ qna.qnaTitle }</a></td>
 					<td>${ qna.user.userName }(${ qna.user.id })</td>
 					<td>${ qna.regDate }</td>
 				</tr>

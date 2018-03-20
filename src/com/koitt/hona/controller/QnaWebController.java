@@ -62,23 +62,30 @@ public class QnaWebController {
 			String qnaContent,
 			@RequestParam("qnaAttachment") MultipartFile qnaAttachment) {
 		
+		System.out.println("userNo >> : " + userNo);
+		System.out.println("qnaTitle >> : " + qnaTitle);
+		System.out.println("qnaContent >> : " + qnaContent);
+		
 		Qna qna = new Qna();
 		qna.setUserNo(userNo);
 		qna.setQnaTitle(qnaTitle);
-		qna.setQnaTitle(qnaTitle);
-		qna.setQnaTitle(qnaTitle);
+		qna.setQnaContent(qnaContent);
+		
 		
 		try {
 			String filename = fileService.add(request, qnaAttachment);
-			qna.setQnaAattachment(filename);
+			qna.setqnaAttachment(filename);
 			
 			qnaService.add(qna);
 			
-		} catch (QnaException e) {
-			request.setAttribute("error", "server");
-		} catch (FileException e) {
-			request.setAttribute("error", "file");
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
+//		}	catch (QnaException e) {
+//			request.setAttribute("error", "server");
+//		} catch (FileException e) {
+//			request.setAttribute("error", "file");
+//		}
 		
 		return "redirect:qna-list.do";
 	}
@@ -104,7 +111,7 @@ public class QnaWebController {
 	@RequestMapping(value="/qna-detail.do", method=RequestMethod.GET)
 	public String detail(Model model, 
 			HttpServletRequest request, 
-			@RequestParam(value="qnaNo", required=false) String qnaNo) {
+			@RequestParam(value="qna_no", required=true) String qnaNo) {
 		
 		Qna qna = null;
 		String filename = null;
@@ -114,7 +121,7 @@ public class QnaWebController {
 		try {
 			qna = qnaService.detail(qnaNo);
 			
-			filename = qna.getQnaAattachment();
+			filename = qna.getqnaAttachment();
 			if(filename != null && !filename.trim().isEmpty()) {
 				filename = URLDecoder.decode(filename, "UTF-8");
 			}
@@ -144,7 +151,7 @@ public class QnaWebController {
 	// 문의글 삭제 확인 화면
 	@RequestMapping(value="/qna-remove.do", method=RequestMethod.GET)
 	public String remove(Model model,
-			@RequestParam(value="qnaNo", required=true) String qnaNo) {
+			@RequestParam(value="qna_no", required=true) String qnaNo) {
 		
 		model.addAttribute("qnaNo", qnaNo);
 		
@@ -153,7 +160,7 @@ public class QnaWebController {
 	
 	// 문의글 삭제 후, 문의글 목록 화면으로 이동
 	@RequestMapping(value="/qna-remove.do", method=RequestMethod.POST) 
-	public String remove(Model model, String qnaNo, HttpServletRequest request) {	
+	public String remove(Model model,String qnaNo,HttpServletRequest request) {	
 		try {
 			String toDeleteFilename = qnaService.remove(qnaNo);
 			fileService.remove(request, toDeleteFilename);
@@ -168,7 +175,7 @@ public class QnaWebController {
 	// 문의글 수정하기 화면
 	@RequestMapping(value="/qna-modify.do", method=RequestMethod.GET)
 	public String modify(Model model,
-			@RequestParam(value="qnaNo", required=true) String qnaNo) {
+			@RequestParam(value="qna_no", required=true) String qnaNo) {
 		Qna qna = null;
 		
 		try {
@@ -198,7 +205,7 @@ public class QnaWebController {
 		try {
 			
 			String filename = fileService.add(request, qnaAttachment);
-			qna.setQnaAattachment(filename);
+			qna.setqnaAttachment(filename);
 			
 			String toDeleteFilename = qnaService.modify(qna);
 			

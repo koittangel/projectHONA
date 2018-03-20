@@ -8,16 +8,16 @@
 	<form action="<c:url value='/qna/qna-modify.do'/>" method="post" enctype="multipart/form-data">
 		<div>번호: ${ qna.qnaNo }</div>
 		<div>상품: ${ qna.productNo }</div>
-		<div>작성자 번호: ${ qna.userNo }</div>
+		<div>작성자: ${ qna.user.userName }(${ qna.user.id })</div>
 		<div>
-			<label>제목<input type="text" name="title" value="${ qna.qnaTitle }"></label>
+			<label>제목<input type="text" name="qnaTitle" value="${ qna.qnaTitle }"></label>
 		</div>
 		<div>
 			<label>내용</label>
-			<textarea name="content">${ qna.qnaContent }</textarea>
+			<textarea name="qnaContent">${ qna.qnaContent }</textarea>
 		</div>
 		<div>
-			<div>첨부파일<input type="file" name="attachment"></div>
+			<div>첨부파일<input type="file" name="qnaAttachment"></div>
 		</div>
 		<input type="hidden" name="qnaNo" value="${ qna.qnaNo }">
 		<input type="hidden" name="productNo" value="${ qna.productNo }">

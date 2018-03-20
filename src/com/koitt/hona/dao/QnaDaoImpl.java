@@ -35,7 +35,7 @@ public class QnaDaoImpl implements QnaDao {
 	public Qna select(String qnaNo) throws QnaException {
 		Qna qna = null;
 		try {
-			qna = session.selectOne(MAPPERS_NS + ".select-board", qnaNo);
+			qna = session.selectOne(MAPPERS_NS + ".select-qna", qnaNo);
 			
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
