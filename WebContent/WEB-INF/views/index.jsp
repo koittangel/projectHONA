@@ -18,6 +18,7 @@
 	<sec:authorize access="hasRole('ADMIN') or hasRole('USER')">
 		<a href="<c:url value='/user-modify.do'/>">회원정보변경</a><br>
 		<a href="<c:url value='/logout.do'/>">로그아웃</a><br>
+		<a href="<c:url value='/qna/qna-add.do'/>">문의글 등록</a><br>
 	</sec:authorize>
 	
 	<sec:authorize access="!hasRole('ADMIN') and !hasRole('USER')">
@@ -27,6 +28,7 @@
 	
 	<a href="<c:url value='/product/product-list.do'/>">제품 목록으로 이동</a><br>
 	<a href="<c:url value='/qna/qna-list.do'/>">문의글 목록</a><br>
+	<a href="<c:url value='/notice/notice-list.do'/>">공지글 목록</a><br>
 		
 </body>
 </html>
