@@ -67,6 +67,8 @@ CREATE TABLE qna (
 	FOREIGN KEY (product_no) REFERENCES product(product_no)
 );
 
+
+
 # 공지사항 게시판 정보를 정의한 테이블
 CREATE TABLE notice (
 	notice_no 		INT				 NOT NULL AUTO_INCREMENT PRIMARY KEY,		

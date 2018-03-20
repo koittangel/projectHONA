@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.koitt.hona.model.User;
 import com.koitt.hona.model.UserException;
-import com.koitt.hona.service.FileService;
 import com.koitt.hona.service.UserService;
+import com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException;
 
 @Controller
 public class UserWebController {
@@ -78,7 +78,8 @@ public class UserWebController {
 		} catch (java.text.ParseException e) {
 			System.out.println(e.getMessage());
 			req.setAttribute("error", "StringToDate");
-		}
+		} 
+		
 		return "redirect:index.do";
 	}
 	

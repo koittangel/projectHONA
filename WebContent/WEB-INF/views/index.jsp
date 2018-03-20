@@ -3,10 +3,13 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html>
-<head><title>홈페이지</title></head>
+<head><title>H O N A</title></head>
 <body>
-
-	<img src="<c:url value='/img/hona.png'/>" alt="로고" />
+	<a href="<c:url value='index.do'/>" style="text-decoration: none;">
+		<img src="<c:url value='/img/hona.png'/>"/>
+	</a>
+	
+	<br>
 	
 	<sec:authorize access="hasRole('ADMIN')">
 		<h3>관리자 페이지 입니다.</h3>
