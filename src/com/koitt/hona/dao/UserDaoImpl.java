@@ -47,12 +47,19 @@ public class UserDaoImpl implements UserDao {
 		session.insert(MAPPER_NS + ".insert-user", user);
 		
 	}
-
+	
 	@Override
-	public void delete(Integer userNo) {
-		// TODO Auto-generated method stub
+	public void deleteUserAuthority(Integer userNo) throws UserException {
+		session.delete(MAPPER_NS + ".delete-user-authority", userNo);
 		
 	}
+	
+	@Override
+	public void delete(Integer userNo) throws UserException {
+		session.delete(MAPPER_NS + ".delete-user", userNo);
+		
+	}
+	
 
 	@Override
 	public void update(User user) {
@@ -118,6 +125,9 @@ public class UserDaoImpl implements UserDao {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+
+
 
 
 

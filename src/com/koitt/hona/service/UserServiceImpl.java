@@ -74,16 +74,18 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public String remove(Integer userNo, String password) {
-		// TODO Auto-generated method stub
+	public String remove(Integer userNo) throws UserException {
+		User user = userDao.select(userNo);
+		userDao.deleteUserAuthority(userNo);
+		userDao.delete(userNo);
 		return null;
 	}
 	
 	@Override
 	public void modify(User user) throws UserException {
+		// 비번암호화
 		user.setPassword(passwordEncoder.encode(user.getPassword()));
 		userDao.update(user);
-		
 		
 	}
 

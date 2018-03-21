@@ -50,20 +50,25 @@
   	</select>
   	
   	<select id="select-users-by-id" parameterType="String" resultMap="UserResultMap">
-  		SELECT u.user_no, u.id, u.password, u.user_name, ua.id as "aid", ua.name as "aname"
+  		SELECT u.user_no, u.id, u.password, u.user_name, u.address, u.phone, u.birth, ua.id, ua.name as "aname"
 		FROM user u, (SELECT user_authority.user_no, authority.id, authority.name 
 				FROM user_authority, authority
 				WHERE user_authority.authority_id = authority.id) ua
 		WHERE u.user_no = ua.user_no AND u.id = #{id}
   	</select>
-  	
 
   	
   	<update id="update-user" parameterType="User"> 
   		UPDATE user SET password = #{password}, phone = #{phone}, 
-  			address = #{address} WHERE user_no = #{userNo};
+  			address = #{address} WHERE user_no = #{userNo}
   	</update>
 
+  	<delete id="delete-user-authority" parameterType="User">
+  		DELETE FROM user_authority WHERE user_no = #{userNo}
+  	</delete>
   	
+  	<delete id="delete-user" parameterType="Uesr">
+  		DELETE FROM user WHERE user_no = #{ userNo }
+  	</delete>
   	
   </mapper>

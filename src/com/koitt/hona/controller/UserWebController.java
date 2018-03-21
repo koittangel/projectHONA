@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.koitt.hona.model.User;
 import com.koitt.hona.model.UserException;
 import com.koitt.hona.service.UserService;
-import com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException;
 
 @Controller
 public class UserWebController {
@@ -113,20 +112,75 @@ public class UserWebController {
 		return "access-denied";
 	}
 	
+	// 회원정보 수정 get
 	@RequestMapping(value="/user-modify.do", method=RequestMethod.GET)
-	public String modify(HttpServletRequest request) {
-		User user= null;
+	public String modify(Model model) {
+		
+		User user = null;
+		
 		
 		try {
 			String id = userService.getPrincipal().getUsername();
 			user = userService.detailById(id);
+			
+		} catch (UserException e) {
+			model.addAttribute("error", "server");
+		}
+		
+		
+		model.addAttribute("user", user);
+		
+		return "user-modify";
+	}
+	
+	
+	// 유저 정보 변경
+	@RequestMapping(value="/user-modify.do", method=RequestMethod.POST)
+	public String modify(HttpServletRequest request,
+			Integer userNo,
+			String oldPassword,
+			String newPassword,
+			String userName,
+			String address,
+			Date birth,
+			Integer phone) {
+
+		User user = null;		
+		
+		try {
+			
+			boolean isMatched = userService.isPasswordMatched(oldPassword);
+			
+			if (isMatched) {
+			
+			// 로그인한 사용자 id값 가져옴
+			String id = userService.getPrincipal().getUsername();
+			// id값을 이용해 다른정보 가져옴
+			User oldUser = userService.detailById(id);
+			
+			// DB에 저장할 객체 생성
+			user = 
+				new User(oldUser.getUserNo(), id, 
+							newPassword, userName, birth, phone, address);
+			
+			userService.modify(user);
+			
+			} else {
+				return "redirect:user-modify.do?error=password";
+			}
+			
 		} catch (UserException e) {
 			request.setAttribute("error", "server");
 		}
 		
-		request.setAttribute("user", user);
 		
-		return "user-modify";
+		return "redirect:user-modify-confirm.do";
+	}
+	
+	// 회원 정보 변경 후 변경확인 화면으로 이동 
+	@RequestMapping(value="user-modify-confirm.do", method=RequestMethod.GET)
+	public String modifyConfirm() {
+		return "user-modify-confirm";
 	}
 	
 }

@@ -19,6 +19,9 @@ public interface UserDao{
 	// 유저 유저번호를 이용해 삭제 
 	public void delete(Integer userNo) throws UserException;
 	
+	// 유저번호로 조회에서 유저 권한 삭제
+	public void deleteUserAuthority(Integer userNo) throws UserException;
+	
 	// 유저 회원정보 수정
 	public void update(User user) throws UserException;
 
