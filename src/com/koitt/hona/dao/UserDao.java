@@ -16,6 +16,9 @@ public interface UserDao{
 	// 유저 추가 (회원가입)
 	public void insert(User user) throws UserException;
 
+	// 유저가 qna에 작성한 게시글 삭제
+	public void deleteUserQna(Integer userNo) throws UserException;
+	
 	// 유저 유저번호를 이용해 삭제 
 	public void delete(Integer userNo) throws UserException;
 	

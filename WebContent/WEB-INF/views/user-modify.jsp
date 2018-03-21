@@ -18,6 +18,7 @@
 		
 		<input type="hidden" name="${ _csrf.parameterName }" value="${ _csrf.token }">
 		<input type="submit" value="변경완료">
+		<a href="<c:url value='/user-delete.do?user_no=${ user.userNo }&user_name=${ user.userName }'/>">회원탈퇴</a><br>
 	</form>	
 
 </body>

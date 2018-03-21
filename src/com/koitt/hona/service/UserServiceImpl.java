@@ -74,11 +74,10 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public String remove(Integer userNo) throws UserException {
-		User user = userDao.select(userNo);
+	public void remove(Integer userNo) throws UserException {
 		userDao.deleteUserAuthority(userNo);
+		userDao.deleteUserQna(userNo);
 		userDao.delete(userNo);
-		return null;
 	}
 	
 	@Override

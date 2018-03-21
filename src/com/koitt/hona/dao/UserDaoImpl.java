@@ -115,7 +115,7 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public void deleteAllUsersAuthority() {
-		session.delete(MAPPER_NS + "delete-all-user-authority");
+		session.delete(MAPPER_NS + ".delete-all-user-authority");
 		
 	}
 
@@ -124,6 +124,13 @@ public class UserDaoImpl implements UserDao {
 	public Integer getCountUsersAuthority() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+
+	@Override
+	public void deleteUserQna(Integer userNo) throws UserException {
+		session.delete(MAPPER_NS + ".delete-use-qna");
+		
 	}
 
 

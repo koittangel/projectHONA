@@ -14,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.koitt.hona.model.User;
 import com.koitt.hona.model.UserException;
@@ -181,6 +182,35 @@ public class UserWebController {
 	@RequestMapping(value="user-modify-confirm.do", method=RequestMethod.GET)
 	public String modifyConfirm() {
 		return "user-modify-confirm";
+	}
+	
+	
+	// 회원 탈퇴확인
+	@RequestMapping(value="/user-delete.do", method=RequestMethod.GET)
+	public String deleteConfirm(Model model, 
+			@RequestParam(value="user_no", required=true) String userNo, 
+			@RequestParam(value="user_name", required=true) String userName) {
+		
+		// model << jsp로 포워딩 하기 위해 만든것 
+		model.addAttribute("userName", userName);
+		model.addAttribute("userNo", userNo);
+		
+		return "user-delete-confirm";
+	}
+	
+	// 회원 탈퇴 후 메인으로 이동
+	@RequestMapping(value="user-delete.do", method=RequestMethod.POST)
+	public String delete(Model model, Integer userNo, 
+			HttpServletRequest req, HttpServletResponse resp) {
+	
+		try {
+			userService.remove(userNo);
+			userService.logout(req, resp);
+		} catch (UserException e) {
+			model.addAttribute("error", "server");
+		}
+		
+		return "user-delete-complete";
 	}
 	
 }

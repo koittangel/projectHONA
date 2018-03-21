@@ -6,6 +6,10 @@ DROP TABLE product;
 DROP TABLE authority;
 DROP TABLE user;
 
+SHOW TABLES;
+
+SELECT * FROM user;
+
 # 고객 정의 테이블
 CREATE TABLE user (
 	user_no 	INT 			NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -78,7 +82,10 @@ CREATE TABLE notice (
 	reg_date 		DATE 			 NOT NULL
 );
 
-SELECT * FROM user;
+
+
+
+
 #DML
 #권한 입력
 INSERT INTO authority (id, name)
@@ -173,7 +180,10 @@ WHERE qp.user_no = u.user_no ORDER BY qp.qna_no DESC;
 # 회원 정보 변경 테스트
 UPDATE user SET password = 1234, phone = 01012345678, address = '남양주' WHERE user_no = 3;
 
-# 회원 탈퇴 (유저 DB 삭제) (유저권한 테이블에 입력된 내용을 삭제 후 유저테이블에서 삭제)
-DELETE FROM user_authority WHERE user_no = 4;
-DELETE FROM user WHERE user_no = 4;
+# 회원 탈퇴 (유저 권한 삭제)
+DELETE FROM user_authority WHERE user_no = 2;
+# 회원 탈퇴 (유저가 qna에 작성한 게시글이 있을 시 게시글 삭제)
+DELETE FROM qna WHERE user_no = 2;
+# 회원 탈퇴 (유저 삭제)
+DELETE FROM user WHERE user_no = 2;
 
