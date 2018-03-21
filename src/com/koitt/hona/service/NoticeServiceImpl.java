@@ -10,8 +10,9 @@ import com.koitt.hona.dao.NoticeDao;
 import com.koitt.hona.model.Notice;
 import com.koitt.hona.model.NoticeException;
 
-@Transactional
+
 @Service
+@Transactional
 public class NoticeServiceImpl implements NoticeService {
 	
 	@Autowired
