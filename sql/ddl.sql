@@ -48,6 +48,7 @@ CREATE TABLE payment (
 	payment_no		INT				NOT NULL	AUTO_INCREMENT PRIMARY KEY,
 	user_no			INT				NOT NULL,
 	product_no		INT 			NOT NULL,
+	status			VARCHAR(40)		NOT NULL,
 	ea				INT				NOT NULL,
 	total_price		INT				NOT NULL,
 	FOREIGN KEY (user_no) REFERENCES user(user_no),
@@ -76,6 +77,7 @@ CREATE TABLE notice (
 	notice_content 	VARCHAR(255) 	 NOT NULL,
 	reg_date 		DATE 			 NOT NULL
 );
+
 
 #DML
 #권한 입력
@@ -129,6 +131,9 @@ INSERT INTO user_authority VALUES (1, 10);
 INSERT INTO user_authority VALUES (2, 20);
 INSERT INTO user_authority VALUES (3, 20);
 
+# 유저번호로 유저 한명의 모든 정보를 보이는 SQL문
+SELECT * FROM user WHERE user_no = 3; 
+
 # 유저번호와 권한 id, 권한 name이 보이는 테이블
 SELECT user_authority.user_no, authority.id, authority.name 
 FROM user_authority, authority
@@ -142,7 +147,7 @@ FROM user u, (SELECT user_authority.user_no, authority.id, authority.name
 WHERE u.user_no = ua.user_no;
 
 # 유저 번호가 같고 id가 같은 회원의 정보조회
-SELECT u.user_no, u.id, u.password, u.user_name, ua.id, ua.name as "aname"
+SELECT u.user_no, u.id, u.password, u.user_name, u.address, u.phone, u.birth, ua.id, ua.name as "aname"
 FROM user u, (SELECT user_authority.user_no, authority.id, authority.name 
 				FROM user_authority, authority
 				WHERE user_authority.authority_id = authority.id) ua
