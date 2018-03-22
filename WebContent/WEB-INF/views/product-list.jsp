@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>상품 목록</title>
+<title>H O N A</title>
 	<link rel="stylesheet" href="<c:url value='/css/index-css.css'/>">
 </head>
 <body>
@@ -17,7 +17,7 @@
 			<a href=
 				"<c:url value='/product/product-detail.do?product_no=${ item.productNo }'/>"
 						class="img-align">
-				<img src="${ imgPaths[status.index] }" width="200" height="200">
+				<img src="${ imgPaths[status.index] }" width="200" height="300">
 			</a>
 		</c:forEach>
 	</div>

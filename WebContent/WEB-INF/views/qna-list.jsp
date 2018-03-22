@@ -3,8 +3,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>문의글 목록</title>
-	<link rel="stylesheet" href="<c:url value='/css/index-css.css'/>">
+	<title>H O N A</title>
+	<link rel="stylesheet" href="<c:url value='/css/table-css.css'/>">
 </head>
 	
 <body>

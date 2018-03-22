@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
-<head><title>문의글 수정</title></head>
+<head><title>H O N A</title></head>
 <body>
 	<h1>문의글 수정</h1>
 	<form action="<c:url value='/qna/qna-modify.do'/>" method="post" enctype="multipart/form-data">
