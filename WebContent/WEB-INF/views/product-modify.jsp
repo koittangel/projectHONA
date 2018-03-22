@@ -13,7 +13,7 @@
 			<label>제품 타입<input type="text" name="productType" value="${ product.productType }"></label>
 		</div>
 		<div>
-			<label>제품 이름<input type="text" name="productName" value="${ product.productType }"></label>
+			<label>제품 이름<input type="text" name="productName" value="${ product.productName }"></label>
 		</div>
 		<div>
 			<label>가격<input type="number" name="price" value="${ product.price }"></label>

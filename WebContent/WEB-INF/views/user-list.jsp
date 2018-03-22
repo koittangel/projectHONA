@@ -4,7 +4,7 @@
 <html>
 <head>
 	<title>H O N A 회원목록</title>
-	<link rel="stylesheet" href="<c:url value='/css/index-css.css'/>">
+	<link rel="stylesheet" href="<c:url value='/css/table-css.css'/>">
 </head>
 <body>
 	<div id="wrap">

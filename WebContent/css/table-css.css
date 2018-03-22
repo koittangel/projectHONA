@@ -1,0 +1,73 @@
+@charset "UTF-8";
+
+
+@import "//fonts.googleapis.com/css?family=Noto+Sans";
+*,body { font-family: '맑은 고딕', 'Malgun Gothic', 'Noto Sans', sans-serif !important; }
+
+body { font-size: 13px; }
+
+#leftMenu {
+    padding-top: 40px;
+    padding-left: 40px;    
+    width: 380px;
+    height: 100%;
+    position: fixed;
+    z-index: 99;
+    border-right: 1px solid #000;
+    vertical-align: top;
+}
+
+#container {
+	position: relative;
+    vertical-align: top;
+    margin-left: 500px;
+}
+
+#wrap {
+	position: relative;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    margin: 0 auto;
+}
+
+
+
+ul { list-style:none; }
+ul li {  display:inline; }
+ul li a { text-decoration:none; color:black; }
+ul li a:hover { text-decoration:underline; }
+
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+
+th {
+    font-weight: bold;
+    text-align: -internal-center;
+}
+
+td, th {
+    display: table-cell;
+    vertical-align: inherit;
+}
+
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+    text-align: center;
+}
+
+table {
+	width: 100%;
+    border: 1px solid #d7d5d5;
+    color: #353535;
+    font-size: 12px;
+    line-height: 140%;
+    border-collapse: collapse;
+}
+
+

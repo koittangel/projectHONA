@@ -23,7 +23,7 @@
 					<td>
 						<table style="height: 300px; width:500px;" >
 							<tr>
-								<td align="center">제품이름</td>
+								<td align="center" width="100px">제품이름</td>
 								<td>${ product.productName }</td>
 							</tr>
 							<tr>
