@@ -22,16 +22,16 @@
 						</c:if></td>
 					<td>
 						<table style="height: 300px; width:500px;" >
-							<tr align="center">
-								<td>제품이름</td>
+							<tr>
+								<td align="center">제품이름</td>
 								<td>${ product.productName }</td>
 							</tr>
-							<tr align="center">
-								<td>가격</td>
+							<tr>
+								<td align="center">가격</td>
 								<td>${ product.price }</td>
 							</tr>
-							<tr align="center">
-								<td>제품설명</td>
+							<tr>
+								<td align="center">제품설명</td>
 								<td>${ product.explaination }</td>
 							</tr>
 							<tr align="center">
