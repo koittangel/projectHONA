@@ -160,7 +160,7 @@ public class ProductWebController {
 			request.setAttribute("error", "file");
 		}
 
-		return "index";
+		return "redirect:/product/product-list.do";
 	}
 
 	// 제품 삭제 확인 화면

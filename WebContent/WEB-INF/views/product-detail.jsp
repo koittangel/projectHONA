@@ -18,10 +18,10 @@
 			<table>
 				<tr>
 					<td><c:if test="${ !empty imgPath }">
-							<img src="${ imgPath }" width="200" height="200">
+							<img src="${ imgPath }">
 						</c:if></td>
 					<td>
-						<table border="1" style="height: 300px; width: 1000px;">
+						<table style="height: 300px; width:500px;" >
 							<tr align="center">
 								<td>제품이름</td>
 								<td>${ product.productName }</td>
