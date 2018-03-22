@@ -6,10 +6,6 @@ DROP TABLE product;
 DROP TABLE authority;
 DROP TABLE user;
 
-SHOW TABLES;
-
-SELECT * FROM user;
-
 # 고객 정의 테이블
 CREATE TABLE user (
 	user_no 	INT 			NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -97,12 +93,6 @@ INSERT INTO authority (id, name)
 # 사용자 입력	
 INSERT INTO user (id, password, user_name, birth, phone, address)
 	VALUES ('hona1', '$2a$10$DFrlIB4d.kN5cbfIkYDHdO2AXeUV6xtbn1gMT6bTfPDMSJJw6bC.O', '관리자1', STR_TO_DATE('1993-01-02', '%Y-%m-%d'), 01011112222, '서울시 금천구');
-	
-INSERT INTO user (id, password, user_name, birth, phone, address)
-	VALUES ('hona2', '$2a$10$DFrlIB4d.kN5cbfIkYDHdO2AXeUV6xtbn1gMT6bTfPDMSJJw6bC.O', '유저1', STR_TO_DATE('1993-01-02', '%Y-%m-%d'), 01011112222, '서울시 금천구');
-	
-INSERT INTO user (id, password, user_name, birth, phone, address)
-	VALUES ('hona3', '$2a$10$DFrlIB4d.kN5cbfIkYDHdO2AXeUV6xtbn1gMT6bTfPDMSJJw6bC.O', '유저2', STR_TO_DATE('1993-01-02', '%Y-%m-%d'), 01011112222, '서울시 금천구');
 
 # 제품 입력
 INSERT INTO product (product_type, product_name, price, inventory, explaination, attachment)
@@ -117,15 +107,7 @@ INSERT INTO product (product_type, product_name, price, inventory, explaination,
 INSERT INTO product (product_type, product_name, price, inventory, explaination, attachment)
 	VALUES ('신발', '슬리퍼', 30000, 1, '시원한 슬리퍼', NULL);
 
-# 문의글 등록
-INSERT INTO qna (product_no, qna_title, qna_content, user_no, reg_date, qna_attachment)
-	VALUES (1, '배송문의', '3월 10일에 주문했는데 아직도 배송준비중이네요..언제 보내실건가요?', 2,  CURDATE(), NULL);
-	
-INSERT INTO qna (product_no, qna_title, qna_content, user_no, reg_date, qna_attachment)
-	VALUES (NULL, '일반문의', '회원가입했는데 여긴 혜택이 하나도 없나요??', 3,  CURDATE(), NULL);
-	
-INSERT INTO qna (product_no, qna_title, qna_content, user_no, reg_date, qna_attachment)
-	VALUES (2, '상품문의', '상품 정보에 사이즈가 하나도 없네요?? 뭐죠?', 2,  CURDATE(), NULL);
+
 	
 # 공지글 등록	
 INSERT INTO notice (notice_title, notice_content, reg_date)

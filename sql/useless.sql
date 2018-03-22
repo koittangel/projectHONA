@@ -36,3 +36,15 @@ CREATE TABLE ordered_product (
 
 SELECT 상품번호, 상품이름, 상품가격, 유저이름, 유저주소, 유저연락처, 결제금액 FROM
 product p, user u, ordered o WHWERE 
+
+
+
+# 문의글 등록
+INSERT INTO qna (product_no, qna_title, qna_content, user_no, reg_date, qna_attachment)
+	VALUES (1, '배송문의', '3월 10일에 주문했는데 아직도 배송준비중이네요..언제 보내실건가요?', 2,  CURDATE(), NULL);
+	
+INSERT INTO qna (product_no, qna_title, qna_content, user_no, reg_date, qna_attachment)
+	VALUES (NULL, '일반문의', '회원가입했는데 여긴 혜택이 하나도 없나요??', 3,  CURDATE(), NULL);
+	
+INSERT INTO qna (product_no, qna_title, qna_content, user_no, reg_date, qna_attachment)
+	VALUES (2, '상품문의', '상품 정보에 사이즈가 하나도 없네요?? 뭐죠?', 2,  CURDATE(), NULL);

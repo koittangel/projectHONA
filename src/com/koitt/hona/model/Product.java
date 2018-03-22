@@ -5,21 +5,19 @@ public class Product {
 	private Integer productNo;	
 	private String productType;
 	private String productName;
-	private Integer price;
-	private Integer EA;	
+	private Integer price;	
 	private Integer inventory;
 	private String explaination;
 	private String attachment;
 
 	public Product() {}
 
-	public Product(Integer productNo, String productType, String productName, Integer price, Integer EA,
+	public Product(Integer productNo, String productType, String productName, Integer price,
 			Integer inventory, String explaination, String attachment) {
 		this.productNo = productNo;
 		this.productType = productType;
 		this.productName = productName;
 		this.price = price;
-		this.EA = EA;
 		this.inventory = inventory;
 		this.explaination = explaination;
 		this.attachment = attachment;
@@ -57,14 +55,6 @@ public class Product {
 		this.price = price;
 	}
 
-	public Integer getEA() {
-		return EA;
-	}
-
-	public void setEA(Integer EA) {
-		this.EA = EA;
-	}
-
 	public Integer getInventory() {
 		return inventory;
 	}
@@ -93,7 +83,6 @@ public class Product {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((EA == null) ? 0 : EA.hashCode());
 		result = prime * result + ((attachment == null) ? 0 : attachment.hashCode());
 		result = prime * result + ((explaination == null) ? 0 : explaination.hashCode());
 		result = prime * result + ((inventory == null) ? 0 : inventory.hashCode());
@@ -133,8 +122,6 @@ public class Product {
 		builder.append(productName);
 		builder.append(", price=");
 		builder.append(price);
-		builder.append(", EA=");
-		builder.append(EA);
 		builder.append(", inventory=");
 		builder.append(inventory);
 		builder.append(", explaination=");
