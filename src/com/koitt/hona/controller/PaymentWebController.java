@@ -43,8 +43,6 @@ public class PaymentWebController {
 	@Autowired
 	private UserService userService;
 
-	@Autowired
-	private PaymentService paymentService;
 
 	// 결제 준비화면
 	@RequestMapping(value = "/payment.do", method = RequestMethod.GET)
@@ -84,31 +82,38 @@ public class PaymentWebController {
 	}
 
 	@RequestMapping(value="/ready.do", method=RequestMethod.POST)
-	public String ready(
-			@RequestParam(value="productNo", required=true) String productNo,
-			@RequestParam(value="ea", required=true) Integer ea,
-			HttpSession session ) throws JsonParseException, JsonMappingException, IOException {
+	public String ready(String productNo, Integer ea, HttpSession session ) throws JsonParseException, JsonMappingException, IOException {
 		
-
+	
 		RestTemplate rt = new RestTemplate();
 		
-		Product product = null;
+		Product product;
 		Payment payment = null;
-		String paymentNo = null;
+		String paymentNo;
+		User user;
 		
 		try {
-			Integer sum = product.getPrice() * ea;
 			
 			product = productService.detail(productNo);
-			payment.setTotalPrice(sum);;
+			String id = userService.getPrincipal().getUsername();
+			user = userService.detailById(id);
+		
+			Integer totalPrice = product.getPrice() * ea;
+			product = productService.detail(productNo);
+			payment.setTotalPrice(totalPrice);
 			
-			SimpleDateFormat vans = new SimpleDateFormat("yyyyMMddHHmmssSSS");
-			paymentNo = vans.format(new Date());
-
+		
+			
 		}  catch (ProductException e) {
 			System.out.println(e.getMessage());
+		} catch (UserException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-
+		
+		SimpleDateFormat vans = new SimpleDateFormat("yyyyMMddHHmmssSSS");
+		paymentNo = vans.format(new Date());
+		
 		MultiValueMap<String, String> params = new LinkedMultiValueMap<String, String>();
 		params.add("cid", "TC0ONETIME");									// 가맹점 코드번호 (테스트용)
 		params.add("partner_order_id", paymentNo);							// 가맹점 주문번호
@@ -138,7 +143,7 @@ public class PaymentWebController {
 
 		// 우리가 요청하는 문서 형태 지정: Form Urlencoded
 		headers.add("Content-Type", MediaType.APPLICATION_FORM_URLENCODED_VALUE + ";charset=UTF-8");
-
+		
 		// 위에서 작성한 헤더정보와 Body정보를 담는 HttpEntity 객체를 생성
 		HttpEntity<MultiValueMap<String, String>> request = 
 				new HttpEntity<MultiValueMap<String, String>>(params, headers);
@@ -165,7 +170,7 @@ public class PaymentWebController {
 		session.setAttribute("tid", resultMap.get("tid"));
 		session.setAttribute("partner_order_id", (payment.getPaymentNo()).toString());
 		session.setAttribute("partner_user_id", payment.getUser().getUserName());
-
+		
 		return "redirect:" + resultMap.get("next_redirect_pc_url");
 	}
 

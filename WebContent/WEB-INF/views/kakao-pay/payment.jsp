@@ -17,7 +17,10 @@
 		<div>주소: ${ user.address }</div>
 		<div>연락처: ${ user.phone }</div>
 		<input type="hidden" name="productNo" value="${ product.productNo } ">
-		<input type="hidden" name="ea" value="${ payment.ea } ">
+		<input type="hidden" name="ea" value="${ ea } ">
+		<input type="hidden" name="productName" value="${ product.productName } ">
+		<input type="hidden" name="totalPrice" value="${ totalPrice } ">
+		<input type="hidden" name="userName" value="${ user.userName } ">
 		<input type="submit" value="결제하기"><br>
 		<input type="hidden" name="${ _csrf.parameterName }" value="${ _csrf.token }">
 	</form>
