@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>제품 수정 화면</title>
+	<title>H O N A</title>
 </head>
 <body>
 	<h1>제품 수정</h1>

@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>공지글 작성</title>
+	<title>H O N A</title>
 	<link rel="stylesheet" href="<c:url value='/css/index-css.css'/>">
 </head>
 <body>

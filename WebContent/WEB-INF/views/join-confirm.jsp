@@ -7,6 +7,5 @@
 </head>
 <body>
 	<h1>${ userName }님의 가입을 환영합니다.</h1>
-	<a href="<c:url value='/index.do'/>">홈으로 이동</a>
 </body>
 </html>
