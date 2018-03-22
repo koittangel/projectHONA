@@ -47,5 +47,8 @@ ul li a:hover { text-decoration:underline; }
 
 nav { display:table-cell; }
 section { display:table-cell; }
-			
+
+.img-align {
+    padding-left: 10px;
+}			
 			

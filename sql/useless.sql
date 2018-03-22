@@ -48,3 +48,19 @@ INSERT INTO qna (product_no, qna_title, qna_content, user_no, reg_date, qna_atta
 	
 INSERT INTO qna (product_no, qna_title, qna_content, user_no, reg_date, qna_attachment)
 	VALUES (2, '상품문의', '상품 정보에 사이즈가 하나도 없네요?? 뭐죠?', 2,  CURDATE(), NULL);
+	
+	
+					<!--
+					<table> 
+					<tr>
+						<th>제품번호</th>
+						<td>${ item.productNo }</td>
+						<th>제품이름</th>
+						<th>제품가격</th>
+						<th>제품이미지</th>
+							<td>
+								<img src="${ imgPaths[status.index] }" width="200" height="200">
+							</td>
+								${ item.productName }
+								${ item.price }
+					</tr> -->
