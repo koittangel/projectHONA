@@ -6,6 +6,9 @@ DROP TABLE product;
 DROP TABLE authority;
 DROP TABLE user;
 
+SELECT * FROM product;
+select * from product WHERE product_type = 'top';
+
 # 고객 정의 테이블
 CREATE TABLE user (
 	user_no 	INT 			NOT NULL AUTO_INCREMENT PRIMARY KEY,

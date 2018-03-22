@@ -27,6 +27,7 @@
 		<li><a href="<c:url value='/product/product-list.do'/>">제품 목록으로 이동</a><br></li>
 		<li><a href="<c:url value='/qna/qna-list.do'/>">문의글 목록</a><br></li>
 		<li><a href="<c:url value='/notice/notice-list.do'/>">공지글 목록</a><br></li>
+		<li><a href="<c:url value='/type/category.do?product_type=top'/>">TOP</a></li>
 	</ul>
 
 
