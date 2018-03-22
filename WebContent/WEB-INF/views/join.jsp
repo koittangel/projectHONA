@@ -14,12 +14,35 @@
 		<div id="container">
 			<h1>회원가입 페이지</h1>
 			<form action="<c:url value='/join.do'/>" method="post" enctype="multipart/form-data">
-				<label>ID : <input type="text" name="id"></label><br>
-				<label>PASSWORD : <input type="password" name="password"></label><br>
-				<label>이름 : <input type="text" name="userName"></label><br>
-				<label>생년월일 : <input type="date" name="birth"></label><br>
-				<label>연락처 : <input type="number" name="phone"></label><br>
-				<label>주소 : <input type="text" name="address"></label><br>
+				
+				<table>
+					<tr>
+						<td>ID : </td>
+						<td><input type="text" name="id"></td>
+					</tr>
+					<tr>
+						<td>PASSWORD :</td>
+						<td><input type="password" name="password"><td>
+					</tr>
+					<tr>
+						<td>이름 :  </td>
+						<td><input type="text" name="userName"></td>
+					</tr>
+					<tr>
+						<td>생년월일 : </td>
+						<td><input type="date" name="birth"></td>
+					</tr>
+					<tr>
+						<td>연락처 : </td>
+						<td><input type="number" name="phone"></td>
+					</tr>
+					<tr>
+						<td>주소 : </td>
+						<td><input type="text" name="address"></td>
+					</tr>
+
+				</table>
+				
 				<input type="submit" value="회원가입"><br>
 				<input type="hidden" name="${ _csrf.parameterName }" value="${ _csrf.token }">
 			</form>

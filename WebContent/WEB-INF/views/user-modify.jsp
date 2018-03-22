@@ -14,13 +14,37 @@
 		<div id="container">
 			<h1>회원정보변경</h1>
 			<form action="<c:url value='/user-modify.do'/>" method="post">
-				<div>회원 이름 : ${ user.userName }</div>
-				<div>회원 ID : ${ user.id }</div>
-				<label>기존 비밀번호 <input type="password" name="oldPassword"></label><br>
-				<label>신규 비밀번호 <input type="password" name="newPassword"></label><br>
-				<div>생년월일 : ${ user.birth }</div>
-				<label>주소 : <input type="text" name="address" value="${ user.address }"></label><br>
-				<label>연락처 : <input type="number" name="phone" value="${ user.phone }"></label><br>
+			
+				<table>
+					<tr>
+						<td>회원 이름 : </td>
+						<td>${ user.userName }</td>
+					</tr>
+					<tr>
+						<td>회원 ID :</td>
+						<td>${ user.id }<td>
+					</tr>
+					<tr>
+						<td>기존 비밀번호 </td>
+						<td><input type="password" name="oldPassword"></td>
+					</tr>
+					<tr>
+						<td>신규 비밀번호 </td>
+						<td><input type="password" name="newPassword"></td>
+					</tr>
+					<tr>
+						<td>생년월일</td>
+						<td>${ user.birth }</td>
+					</tr>
+					<tr>
+						<td>주소</td>
+						<td><input type="text" name="address" value="${ user.address }"></td>
+					</tr>
+					<tr>
+						<td>연락처</td>
+						<td><input type="number" name="phone" value="${ user.phone }"></td>
+					</tr>
+				</table>
 				
 				<input type="hidden" name="${ _csrf.parameterName }" value="${ _csrf.token }">
 				<input type="submit" value="변경완료">

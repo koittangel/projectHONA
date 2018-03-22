@@ -14,27 +14,33 @@
 		<div id="container">
 			<h1>제품 등록</h1>
 			<form action="<c:url value='/product/product-add.do'/>" method="post" enctype="multipart/form-data">
-				<div>
-					<span>제품 타입<input type="text" name="productType"></span>
-				</div>
-				<div>
-					<span>제품 이름<input type="text" name="productName"></span>
-				</div>
-				<div>
-					<span>가격<input type="number" name="price"></span>
-				</div>
-				<div>
-					<span>재고<input type="number" name="inventory"></span>
-				</div>
-				<div>
-					<label>제품 설명</label>
-					<textarea name="explaination"></textarea>
-				</div>
-				<div>
-					<label>제품 사진</label>
-					<input multiple="multiple" type="file" name="attachment">
-		
-				</div>
+				<table>
+					<tr>
+						<td>제품 타입</td>
+						<td><input type="text" name="productType"></td>
+					</tr>
+					<tr>
+						<td>제품 이름</td>
+						<td><input type="text" name="productName"><td>
+					</tr>
+					<tr>
+						<td>가격</td>
+						<td><input type="number" name="price"></td>
+					</tr>
+					<tr>
+						<td>재고</td>
+						<td><input type="number" name="inventory"></td>
+					</tr>
+					<tr>
+						<td>제품설명</td>
+						<td><textarea name="explaination"></textarea></td>
+					</tr>
+					<tr>
+						<td>제품사진</td>
+						<td><input multiple="multiple" type="file" name="attachment"></td>
+					</tr>
+				</table>
+
 				<input type="submit" value="제품 등록"><br>
 				<input type="hidden" name="${ _csrf.parameterName }" value="${ _csrf.token }">
 			</form>

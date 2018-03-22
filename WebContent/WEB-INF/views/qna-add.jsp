@@ -14,25 +14,33 @@
 		<div id="container">
 			<h1>문의글 작성</h1>
 			<form action="<c:url value='/qna/qna-add.do'/>" method="post" enctype="multipart/form-data">
-				<div>
-					<span>작성자: </span>
-					<span>${ user.userName }(${ user.id })</span>
-				</div>
-				<div>
-					<label>제목<input type="text" name="qnaTitle"></label>
-				</div>
-				<div>
-					<label>내용</label>
-					<textarea name="qnaContent"></textarea>
-				</div>
-				<div>
-					<label>첨부파일 <input multiple="multiple" type="file" name="qnaAttachment"></label>
-				</div>
+			
+				<table>
+					<tr>
+						<td>작성자</td>
+						<td>${ user.userName }(${ user.id })</td>
+					</tr>
+					<tr>
+						<td>제목</td>
+						<td><input type="text" name="qnaTitle"><td>
+					</tr>
+					<tr>
+						<td>내용</td>
+						<td><textarea name="qnaContent"></textarea></td>
+					</tr>
+					<tr>
+						<td>첨부파일</td>
+						<td><input multiple="multiple" type="file" name="qnaAttachment"></td>
+					</tr>
+				</table>
+				
 				<input type="submit" value="등록">
 				<input type="reset" value="입력한 내용 지우기">
 				<a href="<c:url value='/qna/qna-list.do'/>">문의게시판으로 이동</a>
 				<input type="hidden" name="userNo" value="${ user.userNo }">
 				<input type="hidden" name="${ _csrf.parameterName }" value="${ _csrf.token }">
+				
+	
 			</form>
 		</div>	
 	</div>
