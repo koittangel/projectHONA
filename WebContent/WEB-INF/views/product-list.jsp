@@ -10,7 +10,7 @@
 	<div id="wrap">
 		<div id="leftMenu">
 		<jsp:include page="index.jsp" flush="false"/>
-
+		</div>
 			<div id="container">
 				<h1>상품 목록</h1>
 				<table border="1">
@@ -34,8 +34,6 @@
 				</table>
 			</div>
 		</div>
-	</div>
-	
 	
 	
 </body>

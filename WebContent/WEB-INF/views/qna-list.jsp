@@ -2,32 +2,44 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
-<head><title>문의글 목록</title></head>
+<head>
+	<title>문의글 목록</title>
+	<link rel="stylesheet" href="<c:url value='/css/index-css.css'/>">
+</head>
+	
 <body>
-	<h1>문의글 목록</h1>
-	<a href="<c:url value='/qna/qna-add.do'/>">글쓰기</a>
-	<table>
-		<thead>
-			<tr>
-				<th>번호</th>
-				<th>상품</th>
-				<th>제목</th>
-				<th>작성자</th>
-				<th>작성일</th>
-			</tr>
-		</thead>
-		<tbody>
-			<c:forEach items="${ list }" var="qna">
-				<tr>
-					<td>${ qna.qnaNo }</td>
-					<td>${ qna.productNo }</td>
-					<td><a href="<c:url value='/qna/qna-detail.do?qna_no=${ qna.qnaNo }'/>">${ qna.qnaTitle }</a></td>
-					<td>${ qna.user.userName }(${ qna.user.id })</td>
-					<td>${ qna.regDate }</td>
-				</tr>
-			</c:forEach>
-		</tbody>
-	</table>
-	<a href="<c:url value='/index.do'/>">메인 화면</a>
+	<div id="wrap">
+		<div id="leftMenu">
+		<jsp:include page="index.jsp" flush="false"/>
+		</div>
+		
+		<div id="container">	
+			<h1>문의글 목록</h1>
+			<a href="<c:url value='/qna/qna-add.do'/>">글쓰기</a>
+			<table>
+				<thead>
+					<tr>
+						<th>번호</th>
+						<th>상품</th>
+						<th>제목</th>
+						<th>작성자</th>
+						<th>작성일</th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach items="${ list }" var="qna">
+						<tr>
+							<td>${ qna.qnaNo }</td>
+							<td>${ qna.productNo }</td>
+							<td><a href="<c:url value='/qna/qna-detail.do?qna_no=${ qna.qnaNo }'/>">${ qna.qnaTitle }</a></td>
+							<td>${ qna.user.userName }(${ qna.user.id })</td>
+							<td>${ qna.regDate }</td>
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+		</div>
+		
+	</div>
 </body>
 </html>
