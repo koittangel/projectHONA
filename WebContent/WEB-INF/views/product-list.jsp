@@ -12,7 +12,6 @@
 		<jsp:include page="index.jsp" flush="false"/>
 		</div>
 			<div id="container">
-
 					<c:forEach var="item" items="${ list }" varStatus="status">
 						<a href=
 							"<c:url value='/product/product-detail.do?product_no=${ item.productNo }'/>"

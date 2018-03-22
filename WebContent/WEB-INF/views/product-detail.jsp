@@ -21,7 +21,7 @@
 							<img src="${ imgPath }" width="200" height="200">
 						</c:if></td>
 					<td>
-						<table style="height: 300px;">
+						<table border="1" style="height: 300px; width: 1000px;">
 							<tr align="center">
 								<td>제품이름</td>
 								<td>${ product.productName }</td>
