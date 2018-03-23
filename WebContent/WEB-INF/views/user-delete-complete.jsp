@@ -7,6 +7,6 @@
 </head>
 <body>
 	<h2>탈퇴 되었습니다.</h2>
-	<a href="<c:url value='/index.do'/>">홈으로 이동</a>
+	<a href="<c:url value='/product/product-list.do'/>">홈으로 이동</a>
 </body>
 </html>

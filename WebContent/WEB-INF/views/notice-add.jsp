@@ -31,6 +31,7 @@
 				<a href="<c:url value='/notice/notice-list.do'/>">공지글 목록으로 이동</a>
 				<input type="hidden" name="${ _csrf.parameterName }" value="${ _csrf.token }">
 			</form>
+		</div>
 	</div>
 </body>
 </html>

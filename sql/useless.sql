@@ -64,3 +64,6 @@ INSERT INTO qna (product_no, qna_title, qna_content, user_no, reg_date, qna_atta
 								${ item.productName }
 								${ item.price }
 					</tr> -->
+					
+<li><a href="<c:url value='/product/product-list.do'/>">제품 목록으로 이동</a><br></li>
+

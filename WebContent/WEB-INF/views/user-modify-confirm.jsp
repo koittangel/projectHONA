@@ -5,6 +5,6 @@
 <head><title>회원정보가 변경되었습니다.</title></head>
 <body>
 	<h1>변경되었습니다.</h1>
-	<a href="<c:url value='/index.do'/>">홈으로 이동</a>
+	<a href="<c:url value='/product/product-list.do'/>">홈으로 이동</a>
 </body>
 </html>

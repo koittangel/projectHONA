@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>공지글 목록</title>
+	<title>H O N A</title>
 	<link rel="stylesheet" href="<c:url value='/css/table-css.css'/>">
 </head>
 <body>

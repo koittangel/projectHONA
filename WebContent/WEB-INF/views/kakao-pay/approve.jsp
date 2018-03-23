@@ -12,7 +12,7 @@
 <body>
 	<h1>결제승인</h1>
 	<p>아래는 결제승인 결과입니다.</p>
-	<a href="<c:url value='/index.do'/>">홈으로 이동</a>
+	<a href="<c:url value='/product/product-list.do'/>">홈으로 이동</a>
 	
 	<h2>기본 정보</h2>
 	<table class="table">
