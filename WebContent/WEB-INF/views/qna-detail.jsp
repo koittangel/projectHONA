@@ -17,7 +17,7 @@
 			<ul>
 				<li class="writer">${ qna.user.userName }(${ qna.user.id })</li>
 				<li class="writer">${ qna.regDate }</li>
-				<li class="writer">${ qna.qnaTitle }</li>
+				<li class="titlee">${ qna.qnaTitle }</li>
 				<li class="content">${ qna.qnaContent }</li>
 				<c:if test="${ !empty filename }">
 					<dt>첨부파일</dt>

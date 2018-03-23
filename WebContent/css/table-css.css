@@ -121,6 +121,15 @@ table {
     margin-right: 40px;
     
 }
+.titlee {
+    display: block;
+    line-height: 18px;
+    border-bottom: 1px solid #ccc;
+    padding: 8px 0;
+    margin-right: 40px;
+    
+   	font-style: bold;
+}
 
 .content {	
     border-bottom: 0px;
@@ -128,16 +137,9 @@ table {
     line-height: 180%;
 }
 
-li {
+/* li {
     display: block;
     line-height: 18px;
     border-bottom: 1px solid #ccc;
     padding: 8px 0;
-}
-
-.view {
-	border-bottom: 0px;
-    padding: 30px 2px;
-    line-height: 180%;
-	
-}
+} */
