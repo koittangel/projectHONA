@@ -12,7 +12,6 @@
 			<jsp:include page="index.jsp" flush="false"/>
 		</div>
 		<div id="container">
-			<h1>회원가입 페이지</h1>
 			<form action="<c:url value='/join.do'/>" method="post" enctype="multipart/form-data">
 				
 				<table>

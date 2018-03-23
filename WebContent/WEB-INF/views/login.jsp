@@ -16,11 +16,19 @@
 		
 			<h1>로그인 페이지</h1>
 			<form action="<c:url value='/login-processing'/>" method="post">
-				<input type="id" name="id" placeholder="아이디 를 입력해주세요" required><br>
-				<input type="password" name="password" placeholder="비밀번호를 입력해주세요." required><br>
-				<input type="hidden" name="${ _csrf.parameterName }" value="${ _csrf.token }">
+				<table>
+				<tr>
+					<td>아이디</td>
+					<td><input type="id" name="id" placeholder="아이디 를 입력해주세요" required></td>
+				</tr>
+				<tr>
+					<td>비밀번호</td>
+					<td><input type="password" name="password" placeholder="비밀번호를 입력해주세요." required></td>
+				</tr>
+				</table>
 				<br>
 				<input type="submit" value="로그인">
+				<input type="hidden" name="${ _csrf.parameterName }" value="${ _csrf.token }">
 			</form>
 			
 			<a href="<c:url value='/join.do'/>">회원가입</a>

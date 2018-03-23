@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>제품 상세 정보</title>
+	<title>H O N A</title>
 	<link rel="stylesheet" href="<c:url value='/css/index-css.css'/>">
 </head>
 <body>
@@ -14,7 +14,6 @@
 	<jsp:include page="index.jsp" flush="false"/>
 	</div>
 		<div id="container">
-			<h1>제품 상세정보</h1>
 			<table>
 				<tr>
 					<td><c:if test="${ !empty imgPath }">
