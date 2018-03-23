@@ -4,8 +4,12 @@
 @import "//fonts.googleapis.com/css?family=Noto+Sans";
 *,body { font-family: '맑은 고딕', 'Malgun Gothic', 'Noto Sans', sans-serif !important; }
 
-body { font-size: 13px; }
-
+body { 
+	font-size: 13px; 
+	text-decoration:none; color:black; 
+}
+body a { text-decoration:none; color:black; }
+body a:hover { text-decoration:underline; }
 #leftMenu {
     padding-top: 40px;
     padding-left: 40px;    
@@ -26,6 +30,19 @@ body { font-size: 13px; }
     
 }
 
+#footer {
+	width: 95%;
+    margin: 0 auto;
+    border-top: 1px solid #ccc;
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color: rgb(204, 204, 204);
+    padding: 50px 0;
+    padding-top: 50px;
+    padding-right: 0px;
+    padding-bottom: 50px;
+    padding-left: 0px;
+}
 .xans-board-read .boardView {
     position: relative;
     width: 95%;
@@ -80,10 +97,6 @@ table {
     border-collapse: collapse;
 }
 
-.title {
-	padding-left: 420px;
-}
-
 .board {
 	position: relative;
     display: block;
@@ -127,8 +140,7 @@ table {
     border-bottom: 1px solid #ccc;
     padding: 8px 0;
     margin-right: 40px;
-    
-   	font-style: bold;
+
 }
 
 .content {	
@@ -137,9 +149,4 @@ table {
     line-height: 180%;
 }
 
-/* li {
-    display: block;
-    line-height: 18px;
-    border-bottom: 1px solid #ccc;
-    padding: 8px 0;
-} */
+

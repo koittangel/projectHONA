@@ -14,6 +14,7 @@
 		<jsp:include page="index.jsp" flush="false"/>
 		</div>
 		<div id="container">
+		<div><img src="<c:url value='/img/notice.jpg'/>" /></div>
 			<table>
 				<thead>
 					<tr>
