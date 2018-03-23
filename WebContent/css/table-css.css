@@ -26,6 +26,13 @@ body { font-size: 13px; }
     
 }
 
+.xans-board-read .boardView {
+    position: relative;
+    width: 95%;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
 #wrap {
 	position: relative;
     width: 100%;
@@ -73,4 +80,64 @@ table {
     border-collapse: collapse;
 }
 
+.title {
+	padding-left: 420px;
+}
 
+.board {
+	position: relative;
+    display: block;
+    width: 100%;
+    margin: 30px auto;
+    margin-top: 30px;
+    margin-right: auto;
+    margin-bottom: 30px;
+    margin-left: auto;
+    border: 1px solid #CCC;
+    border-top-color: rgb(204, 204, 204);
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-right-color: rgb(204, 204, 204);
+    border-right-style: solid;
+    border-right-width: 1px;
+    border-bottom-color: rgb(204, 204, 204);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-left-color: rgb(204, 204, 204);
+    border-left-style: solid;
+    border-left-width: 1px;
+    border-image-source: initial;
+    border-image-slice: initial;
+    border-image-width: initial;
+    border-image-outset: initial;
+    border-image-repeat: initial;	
+}
+
+.writer {
+    display: block;
+    line-height: 18px;
+    border-bottom: 1px solid #ccc;
+    padding: 8px 0;
+    margin-right: 40px;
+    
+}
+
+.content {	
+    border-bottom: 0px;
+    padding: 30px 2px;
+    line-height: 180%;
+}
+
+li {
+    display: block;
+    line-height: 18px;
+    border-bottom: 1px solid #ccc;
+    padding: 8px 0;
+}
+
+.view {
+	border-bottom: 0px;
+    padding: 30px 2px;
+    line-height: 180%;
+	
+}

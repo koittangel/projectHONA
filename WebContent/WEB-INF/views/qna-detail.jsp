@@ -4,34 +4,34 @@
 <html>
 <head>
 	<title>H O N A</title>
-	<link rel="stylesheet" href="<c:url value='/css/index-css.css'/>">
+	<link rel="stylesheet" href="<c:url value='/css/table-css.css'/>">
 </head>
 <body>
-	<div id="wrap">
+<div id="wrap">
 		<div id="leftMenu">
 		<jsp:include page="index.jsp" flush="false"/>
 		</div>
 		
-		<div id="container">
-			<dl>
-				<dt>번호</dt><dd>${ qna.qnaNo }</dd>
-				<dt>상품</dt><dd>${ qna.product.productNo }</dd>
-				<dt>작성자</dt><dd>${ qna.user.userName }(${ qna.user.id })</dd>
-				<dt>작성일</dt><dd>${ qna.regDate }</dd>
-				<dt>제목</dt><dd>${ qna.qnaTitle }</dd>
-				<dt>내용</dt><dd>${ qna.qnaContent }</dd>
+	<div id="container">	
+		<div class="board">		
+			<ul>
+				<li class="writer">${ qna.user.userName }(${ qna.user.id })</li>
+				<li class="writer">${ qna.regDate }</li>
+				<li class="writer">${ qna.qnaTitle }</li>
+				<li class="content">${ qna.qnaContent }</li>
 				<c:if test="${ !empty filename }">
 					<dt>첨부파일</dt>
-					<dd><a href="<c:url value='/download.do?filename=${ qna.qnaAttachment }'/>">${ filename }</a></dd>
+					<li><a href="<c:url value='/download.do?filename=${ qna.qnaAttachment }'/>">${ filename }</a></li>
 				</c:if>
 				<c:if test="${ !empty imgPath }">
 					<img src="${ imgPath }" alt="이미지 파일 출력위치">
 				</c:if>
-			</dl>
+			</ul>
+			</div>
 			<a href="<c:url value='/qna/qna-list.do'/>">문의게시판으로 이동</a>
 			<a href="<c:url value='/qna/qna-modify.do?qna_no=${ qna.qnaNo }'/>">수정</a>
 			<a href="<c:url value='/qna/qna-remove.do?qna_no=${ qna.qnaNo }'/>">삭제</a>
 		</div>
-	</div>
+</div>
 </body>
 </html>

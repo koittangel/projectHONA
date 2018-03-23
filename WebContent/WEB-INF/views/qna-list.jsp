@@ -11,9 +11,10 @@
 	<div id="wrap">
 		<div id="leftMenu">
 		<jsp:include page="index.jsp" flush="false"/>
-		</div>
+		</div>	
 		
 		<div id="container">	
+			<div class="title"><img src="<c:url value='/img/qna.jpg'/>" /></div>
 			<a href="<c:url value='/qna/qna-add.do'/>">글쓰기</a>
 			<table>
 				<thead>
