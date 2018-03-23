@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,7 +34,7 @@
 							<td>${ qna.productNo }</td>
 							<td><a href="<c:url value='/qna/qna-detail.do?qna_no=${ qna.qnaNo }'/>">${ qna.qnaTitle }</a></td>
 							<td>${ qna.user.userName }(${ qna.user.id })</td>
-							<td>${ qna.regDate }</td>
+							<td><fmt:formatDate value="${qna.regDate}" pattern="yyyy-MM-dd HH:mm:ss" /></td>
 						</tr>
 					</c:forEach>
 				</tbody>

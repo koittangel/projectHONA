@@ -7,6 +7,7 @@ DROP TABLE authority;
 DROP TABLE user;
 
 SELECT * FROM product;
+SELECT * FROM qna;
 select * from product WHERE product_type = 'top';
 
 # 고객 정의 테이블
@@ -65,11 +66,13 @@ CREATE TABLE qna (
 	qna_title 		VARCHAR(30) 	 NOT NULL,
 	qna_content 	VARCHAR(255) 	 NOT NULL,
 	user_no 		INT 			 NOT NULL,
-	reg_date 		DATE 			 NOT NULL,
+	reg_date 		DATETIME 		 NOT NULL,
 	qna_attachment 	VARCHAR(255)	 NULL,
 	FOREIGN KEY (user_no) REFERENCES user(user_no),
 	FOREIGN KEY (product_no) REFERENCES product(product_no)
 );
+
+ALTER TABLE qna MODIFY reg_date DATETIME;
 
 
 
@@ -78,8 +81,10 @@ CREATE TABLE notice (
 	notice_no 		INT				 NOT NULL AUTO_INCREMENT PRIMARY KEY,		
 	notice_title 	VARCHAR(30) 	 NOT NULL,
 	notice_content 	VARCHAR(255) 	 NOT NULL,
-	reg_date 		DATE 			 NOT NULL
+	reg_date 		DATETIME  		 NOT NULL
 );
+
+ALTER TABLE notice MODIFY reg_date DATETIME;
 
 
 
