@@ -11,6 +11,9 @@ ul li {  display:inline; }
 ul li a { text-decoration:none; color:black; }
 ul li a:hover { text-decoration:underline; }
 
+a { text-decoration:none; color:black; }
+a:hover { text-decoration:underline; }
+
 #leftMenu {
     padding-top: 40px;
     padding-left: 40px;    

@@ -14,23 +14,42 @@
 		</div>
 		<div id="container">
 			<form action="<c:url value='/qna/qna-modify.do'/>" method="post" enctype="multipart/form-data">
-				<div>번호: ${ qna.qnaNo }</div>
-				<div>상품: ${ qna.productNo }</div>
-				<div>작성자: ${ qna.user.userName }(${ qna.user.id })</div>
-				<div>
-					<label>제목<input type="text" name="qnaTitle" value="${ qna.qnaTitle }"></label>
-				</div>
-				<div>
-					<label>내용</label>
-					<textarea name="qnaContent">${ qna.qnaContent }</textarea>
-				</div>
-				<div>
-					<div>첨부파일<input type="file" name="qnaAttachment"></div>
-				</div>
+			<table>
+					<tr>
+						<td>번호: </td>
+						<td>${ qna.qnaNo }</td>
+					</tr>
+					<tr>
+						<td>상품 :</td>
+						<td>${ qna.productNo }<td>
+					</tr>
+					<tr>
+						<td>작성자 :</td>
+						<td>${ qna.user.userName }(${ qna.user.id })</td>
+					</tr>
+					<tr>
+						<td>제목 : </td>
+						<td><input type="text" name="qnaTitle" value="${ qna.qnaTitle }"></td>
+					</tr>
+					<tr>
+						<td>가격 : </td>
+						<td><input type="number" name="price" value="${ product.price }"></td>
+					</tr>
+					<tr>
+						<td>내용 : </td>
+						<td><textarea name="qnaContent">${ qna.qnaContent }</textarea></td>
+					</tr>
+					<tr>
+						<td>첨부파일 : </td>
+						<td><input type="file" name="qnaAttachment"></td>
+					</tr>
+				</table>
+
 				<input type="hidden" name="qnaNo" value="${ qna.qnaNo }">
 				<input type="hidden" name="productNo" value="${ qna.productNo }">
 				<input type="submit" value="수정">
 				<input type="reset" value="입력한 내용 지우기">
+				<br>
 				<a href="<c:url value='/qna/qna-list.do'/>">문의글 목록으로 이동</a>
 				<input type="hidden" name="${ _csrf.parameterName }" value="${ _csrf.token }">
 			</form>
