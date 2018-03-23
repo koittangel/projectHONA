@@ -4,7 +4,7 @@
 <html>
 <head>
 <title>H O N A</title>
-	<link rel="stylesheet" href="<c:url value='/css/index-css.css'/>">
+	<link rel="stylesheet" href="<c:url value='/css/product-list-css.css'/>">
 </head>
 <body>
 

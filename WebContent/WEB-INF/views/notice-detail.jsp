@@ -15,7 +15,6 @@
 		
 		<div id="container">
 		
-			<h1>공지</h1>
 				<dl>
 					<dt>번호</dt><dd>${ notice.noticeNo }</dd>
 					<dt>작성일</dt><dd>${ notice.regDate }</dd>

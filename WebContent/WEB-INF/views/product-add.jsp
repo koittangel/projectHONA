@@ -17,7 +17,16 @@
 				<table>
 					<tr>
 						<td>제품 타입</td>
-						<td><input type="text" name="productType"></td>
+						<td>
+							<select name="productType">
+								<option value="">제품 타입</option>
+								<option value="TOP">TOP</option>
+								<option value="BOTTOM">BOTTOM</option>
+								<option value="SHOES">SHOES</option>
+								<option value="BAG">BAG</option>
+								<option value="JEWELRY">JEWELRY</option>
+							</select>
+						</td>
 					</tr>
 					<tr>
 						<td>제품 이름</td>

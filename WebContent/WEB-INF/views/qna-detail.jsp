@@ -13,7 +13,6 @@
 		</div>
 		
 		<div id="container">
-			<h1>문의글 보기</h1>
 			<dl>
 				<dt>번호</dt><dd>${ qna.qnaNo }</dd>
 				<dt>상품</dt><dd>${ qna.product.productNo }</dd>

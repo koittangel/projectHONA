@@ -12,7 +12,6 @@
 		<jsp:include page="index.jsp" flush="false"/>
 		</div>
 		<div id="container">
-			<h1>회원목록 조회</h1>
 			<h6>관리자용 페이지 입니다.</h6>
 			
 			<table>
