@@ -46,18 +46,45 @@ ul li a:hover { text-decoration:underline; }
 }
 
 .footer {
-	position:fixed;
-	left:0px;
-	bottom:0px;
-	height:60px;
-	width:100%;
-	background:"#EE7785";
-	color: white;
+	width: 100%;
+    font-family: Arial,malgun gothic,맑은고딕,NanumGothic,돋움;
+    font-size: 10px;
+    letter-spacing: 1pt;
+    line-height: 18px;
+    text-align: center;
+    color: #999;
+    margin: 0 auto;
+    margin-top: 50px;
 }
 
-.footer span {
-	text-align: center;
+#footer .footer {
+    width: 95%;
+    margin: 0 auto;
+    border-top: 1px solid #ccc;
+    padding: 50px 0;
 }
+
+#footer .footer .left {
+    float: left;
+}
+
+#footer .footer .left li {
+    display: inline-block;
+    vertical-align: top;
+    padding-right: 40px;
+    text-align: left;
+}
+
+#footer .footer .left li.last {
+    padding-right: 0px;
+}
+
+#footer .footer .right {
+    float: right;
+    text-align: left;
+    vertical-align: top;
+}
+
 
 a { text-decoration: none; }
 nav { display:table-cell; }

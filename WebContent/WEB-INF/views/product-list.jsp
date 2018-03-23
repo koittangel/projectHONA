@@ -21,16 +21,17 @@
 				</a>
 			</c:forEach>
 			<div id="footer">
-				<span>COMPANY - L&K . CEO CPO - HONA . ADRRESS - 서울시 금천구<br>
-					BUSINESS LICENSE : 105-13-44550 . ONLINE BUSINESS LICENSE :
-					2018-서울금천-0315<br> COPYRIGHT (C) HONA<br> HOME |
-					AGREEMENT | SHOP-GUIDE | CHECKPRIVACY
-				</span>
+				<div class="footer">
+					<ul class="left">
+						<li>
+							COMPANY - L&K . CEO CP0 - HONA . ADDRESS - 서울시 금천구
+							BUSINESS LICENSE : 105-13-44550 <br> ONLINE BUSINESS LICENSE :
+							2018-서울금천-0315<br> COPYRIGHT (C) HONA<br> HOME | AGREEMENT | SHOP-GUIDE | CHECKPRIVACY
+						</li>
+					</ul>
+				</div>
 			</div>
 		</div>
 	</div>
-
-
-
 </body>
 </html>
