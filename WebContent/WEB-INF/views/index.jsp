@@ -23,11 +23,18 @@
 			<li><a href="<c:url value='/join.do'/>">JOIN </a></li>
 			<li><a href="<c:url value='/login.do'/>">LOGIN</a><br></li>
 		</sec:authorize>
-
-		<li><a href="<c:url value='/product/product-list.do'/>">제품 목록으로 이동</a><br></li>
-		<li><a href="<c:url value='/qna/qna-list.do'/>">문의글 목록</a><br></li>
-		<li><a href="<c:url value='/notice/notice-list.do'/>">공지글 목록</a><br></li>
-		<li><a href="<c:url value='/type/category.do?product_type=top'/>">TOP</a></li>
+		
+		<br>
+		<li><a href="<c:url value='/type/category.do?product_type=TOP'/>">TOP</a><br></li>
+		<li><a href="<c:url value='/type/category.do?product_type=BOTTOM'/>">BOTTOM</a><br></li>
+		<li><a href="<c:url value='/type/category.do?product_type=SHOES'/>">SHOES</a><br></li>
+		<li><a href="<c:url value='/type/category.do?product_type=BAG'/>">BAG</a><br></li>
+		<li><a href="<c:url value='/type/category.do?product_type=JEWELRY'/>">JEWELRY</a><br></li>
+		
+		<%-- <li><a href="<c:url value='/product/product-list.do'/>">제품 목록으로 이동</a><br></li> --%>
+		<br>
+		<li><a href="<c:url value='/qna/qna-list.do'/>">Q&A</a><br></li>
+		<li><a href="<c:url value='/notice/notice-list.do'/>">NOTICE</a><br></li>
 	</ul>
 
 
