@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,8 +30,13 @@
 			</ul>
 			</div>
 			<a href="<c:url value='/qna/qna-list.do'/>">문의게시판으로 이동</a>
-			<a href="<c:url value='/qna/qna-modify.do?qna_no=${ qna.qnaNo }'/>">수정</a>
-			<a href="<c:url value='/qna/qna-remove.do?qna_no=${ qna.qnaNo }'/>">삭제</a>
+			<sec:authorize access="hasRole('ADMIN') or hasRole('USER')">
+				<a href="<c:url value='/qna/qna-modify.do?qna_no=${ qna.qnaNo }'/>">수정</a>
+				
+			</sec:authorize>
+			<sec:authorize access="hasRole('ADMIN')">
+				<a href="<c:url value='/qna/qna-remove.do?qna_no=${ qna.qnaNo }'/>">삭제</a><br>
+			</sec:authorize>
 		</div>
 </div>
 </body>
