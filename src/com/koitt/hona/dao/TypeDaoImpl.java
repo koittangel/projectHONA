@@ -19,12 +19,12 @@ public class TypeDaoImpl implements TypeDao {
 	
 	public TypeDaoImpl() {}
 
-/*	@Override
+	/*@Override
 	public List<Product> selectType() throws ProductException {
 		List<Product> list = null;
 		
 		try {
-			list = session.selectList(MAPPERS_NS + ".selectType");
+			list = session.selectList(MAPPERS_NS + ".select-type");
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 			throw new ProductException(e.getMessage());
@@ -33,15 +33,15 @@ public class TypeDaoImpl implements TypeDao {
 	}*/
 
 	@Override
-	public Product selectType(String productType) throws ProductException {
-		Product product  = null;
+	public List<Product> selectType(String productType) throws ProductException {
+		List<Product> typeList = null;
 		try {
-			product = session.selectOne(MAPPERS_NS + ".select-top", productType);
+			typeList = session.selectList(MAPPERS_NS + ".select-type", productType);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 			throw new ProductException(e.getMessage());
 		}		
-		return product;
+		return typeList;
 	}
 	
 	

@@ -12,13 +12,14 @@
 	<div id="leftMenu">
 		<jsp:include page="../index.jsp" flush="false"/>
 	</div>
+	
 	<div id="container">
-		<h1>TOP</h1>
-		<c:forEach var="item" items="${ list }" varStatus="status">
+		<h1>${ productType }</h1>
+		<c:forEach var="item" items="${ typeList }" varStatus="status">
 			<a href=
 				"<c:url value='/product/product-detail.do?product_no=${ item.productNo }'/>"
 						class="img-align">
-				<img src="${ imgPaths[status.index] }" width="200" height="200">
+				<img src="${ imgPaths[status.index] }" width="220" height="300">
 			</a>
 		</c:forEach>
 	</div>

@@ -37,4 +37,10 @@
   	<delete id="delete-product" parameterType="String">
   		DELETE FROM product WHERE product_no = #{ productNo }
   	</delete>
+  	
+  	<select id="select-type" parameterType="String" resultMap="productResultMap">
+  		SELECT * FROM product WHERE product_type = #{productType}
+   	</select>
+  	
+  	
   </mapper>

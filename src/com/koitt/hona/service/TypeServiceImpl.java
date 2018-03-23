@@ -19,16 +19,19 @@ public class TypeServiceImpl implements TypeService {
 	
 	public TypeServiceImpl() {}
 
-	/*@Override
-	public List<Product> list() throws ProductException {
-		return dao.selectType();
-	}*/
-	
-	
-	
 	@Override
-	public Product selectType(String productType) throws ProductException {
+	public List<Product> selectType(String productType) throws ProductException {
 		return dao.selectType(productType);
 	}
+
+/*	@Override
+	public List<Product> selectType() throws ProductException {
+		return dao.selectType();
+	}
+*/
+
+	
+	
+
 
 }

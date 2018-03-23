@@ -17,7 +17,7 @@
 			<a href=
 				"<c:url value='/product/product-detail.do?product_no=${ item.productNo }'/>"
 						class="img-align">
-				<img src="${ imgPaths[status.index] }" width="200" height="300">
+				<img src="${ imgPaths[status.index] }" width="220" height="300">
 			</a>
 		</c:forEach>
 	</div>
