@@ -50,6 +50,30 @@ ul li a:hover { text-decoration:underline; }
     margin: 0 auto;
 }
 
+#content { 
+	position: relative;
+	height: 100%;
+    width: 95%;
+    margin: 0 auto;
+    padding-top: 40px;
+    vertical-align: top;
+    min-height: 600px;
+}
+
+#footer {
+	position : absolute;
+	bottom: 0px;
+	height: 0%;
+	width: 100%;
+    font-family: Arial,malgun gothic,맑은고딕,NanumGothic,돋움;
+    font-size: 10px;
+    letter-spacing: 1pt;
+    text-align: center;
+    color: #999;
+    margin: 0 auto;
+    box-sizing: content-box;
+}
+
 a { text-decoration: none; }
 nav { display:table-cell; }
 section { display:table-cell; }

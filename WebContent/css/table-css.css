@@ -30,32 +30,36 @@ body a:hover { text-decoration:underline; }
     
 }
 
-#footer {
-	width: 95%;
-    margin: 0 auto;
-    border-top: 1px solid #ccc;
-    border-top-width: 1px;
-    border-top-style: solid;
-    border-top-color: rgb(204, 204, 204);
-    padding: 50px 0;
-    padding-top: 50px;
-    padding-right: 0px;
-    padding-bottom: 50px;
-    padding-left: 0px;
-}
-.xans-board-read .boardView {
-    position: relative;
-    width: 95%;
-    margin: 0 auto;
-    padding: 20px 0;
-}
-
 #wrap {
 	position: relative;
     width: 100%;
     margin: 0 auto;
     padding: 0;
     margin: 0 auto;
+}
+
+#content { 
+	position: relative;
+	height: 100%;
+    width: 95%;
+    margin: 0 auto;
+    padding-top: 40px;
+    vertical-align: top;
+    min-height: 600px;
+}
+
+#footer {
+	position : absolute;
+	bottom: 0px;
+	height: 0%;
+	width: 100%;
+    font-family: Arial,malgun gothic,맑은고딕,NanumGothic,돋움;
+    font-size: 10px;
+    letter-spacing: 1pt;
+    text-align: center;
+    color: #999;
+    margin: 0 auto;
+    box-sizing: content-box;
 }
 
 
