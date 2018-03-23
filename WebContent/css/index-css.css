@@ -45,6 +45,20 @@ ul li a:hover { text-decoration:underline; }
     margin: 0 auto;
 }
 
+.footer {
+	position:fixed;
+	left:0px;
+	bottom:0px;
+	height:60px;
+	width:100%;
+	background:"#EE7785";
+	color: white;
+}
+
+.footer span {
+	text-align: center;
+}
+
 a { text-decoration: none; }
 nav { display:table-cell; }
 
