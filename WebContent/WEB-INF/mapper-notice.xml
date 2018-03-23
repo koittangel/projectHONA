@@ -6,7 +6,7 @@
   <mapper namespace="com.koitt.hona.model.Notice">
   	<insert id="insert-notice" parameterType="Notice">
   		INSERT INTO notice (notice_title, notice_content, reg_date)
-  		VALUES (#{noticeTitle}, #{noticeContent}, CURDATE()) 
+  		VALUES (#{noticeTitle}, #{noticeContent}, CURTIME()) 
   	</insert>
   	
   	<resultMap type="Notice" id="noticeResultMap">

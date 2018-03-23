@@ -6,7 +6,7 @@
   <mapper namespace="com.koitt.hona.model.Qna">
   	<insert id="insert-qna" parameterType="Qna">
   		INSERT INTO qna (product_no, qna_title, qna_content, user_no, reg_date, qna_attachment)
-  		VALUES (#{productNo}, #{qnaTitle}, #{qnaContent}, #{userNo}, CURDATE(), #{qnaAttachment}) 
+  		VALUES (#{productNo}, #{qnaTitle}, #{qnaContent}, #{userNo}, CURTIME(), #{qnaAttachment}) 
   	</insert>
   	
   	<resultMap type="Qna" id="QnaResultMap">
