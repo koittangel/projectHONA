@@ -13,7 +13,6 @@
 		<jsp:include page="index.jsp" flush="false"/>
 		</div>
 		<div id="container">
-			<h1>공지글 목록</h1>
 			<table>
 				<thead>
 					<tr>

@@ -6,7 +6,6 @@
 	<title>H O N A</title>
 </head>
 <body>
-	<h1>제품 수정</h1>
 	<form action="<c:url value='/product/product-modify.do'/>" method="post" enctype="multipart/form-data">
 		<div>제품번호: ${ product.productNo }</div>
 		<div>

@@ -12,7 +12,6 @@
 		<jsp:include page="index.jsp" flush="false"/>
 		</div>
 		<div id ="container">
-			<h1>공지글 작성</h1>
 			<form action="<c:url value='/notice/notice-add.do'/>" method="post">
 		
 				<table>

@@ -14,7 +14,6 @@
 		</div>
 		
 		<div id="container">	
-			<h1>문의글 목록</h1>
 			<a href="<c:url value='/qna/qna-add.do'/>">글쓰기</a>
 			<table>
 				<thead>

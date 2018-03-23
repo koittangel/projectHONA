@@ -21,6 +21,9 @@ body { font-size: 13px; }
 	position: relative;
     vertical-align: top;
     margin-left: 500px;
+    padding-top: 40px;
+    padding-right: 100px;
+    
 }
 
 #wrap {

@@ -12,7 +12,6 @@
 		<jsp:include page="index.jsp" flush="false"/>
 		</div>
 		<div id="container">
-			<h1>회원정보변경</h1>
 			<form action="<c:url value='/user-modify.do'/>" method="post">
 			
 				<table>

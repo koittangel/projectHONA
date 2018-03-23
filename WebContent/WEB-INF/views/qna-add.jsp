@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>문의글 작성</title>
+	<title>H O N A</title>
 	<link rel="stylesheet" href="<c:url value='/css/index-css.css'/>">
 </head>
 <body>
@@ -12,7 +12,7 @@
 		<jsp:include page="index.jsp" flush="false"/>
 		</div>
 		<div id="container">
-			<h1>문의글 작성</h1>
+
 			<form action="<c:url value='/qna/qna-add.do'/>" method="post" enctype="multipart/form-data">
 			
 				<table>
